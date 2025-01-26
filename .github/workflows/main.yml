@@ -1,0 +1,25 @@
+name: Build and Deploy Project
+
+on:
+  pull_request:
+    branches:
+      - main  # Este flujo se ejecutará cuando se suba un PR hacia la rama main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Aquí puedes usar la versión de Node.js que necesites
+
+      - name: Install dependencies
+        run: npm install  # Instala las dependencias
+
+      - name: Build project
+        run: npm run build  # Genera el build de la aplicación
