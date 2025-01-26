@@ -1,25 +1,34 @@
 name: Build and Deploy Project
 
 on:
+  push:
+    branches:
+      - main  # Ejecutar el flujo en cada push hacia la rama main
   pull_request:
     branches:
-      - main  # Este flujo se ejecutará cuando se suba un PR hacia la rama main
+      - main  # Ejecutar el flujo cuando se haga un PR hacia la rama main
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Utilizar el entorno Ubuntu más reciente
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Acción para obtener el código del repositorio
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3  # Configurar Node.js en la versión 16
         with:
-          node-version: '16'  # Aquí puedes usar la versión de Node.js que necesites
+          node-version: '16'
 
       - name: Install dependencies
-        run: npm install  # Instala las dependencias
+        run: npm install  # Instalar dependencias con npm
 
       - name: Build project
-        run: npm run build  # Genera el build de la aplicación
+        run: npm run build  # Ejecutar el build de React
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3  # Subir los archivos del build como artefactos (opcional)
+        with:
+          name: build
+          path: build  # Ruta al directorio del build
