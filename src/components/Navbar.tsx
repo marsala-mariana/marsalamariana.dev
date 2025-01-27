@@ -25,12 +25,24 @@ export const Navbar = () => {
       }}
     >
       <Box paddingInlineStart={5}>
-        <IconBrandGithubFilled
-          size={18}
-          color="white"
-          style={{ marginRight: 10 }}
-        />
-        <IconBrandLinkedinFilled size={18} color="white" />
+        <a
+          href="https://github.com/marsala-mariana"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IconBrandGithubFilled
+            size={18}
+            color="white"
+            style={{ marginRight: 10 }}
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/marianamarsala/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IconBrandLinkedinFilled size={18} color="white" />
+        </a>
       </Box>
       <Box sx={{ width: "62%" }}>
         {navOptions.map((option) => (

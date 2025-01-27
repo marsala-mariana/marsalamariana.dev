@@ -2,6 +2,7 @@ import { Alert, Avatar, Box, Button, Typography } from '@mui/material'
 import image from "../assets/bodyProject.png";
 import { useEffect, useState } from 'react';
 import { IconGhost3Filled } from '@tabler/icons-react';
+import { ReviewFormModal } from './ReviewFormModal';
 
 
 const projectReviews = [
@@ -21,39 +22,36 @@ const projectReviews = [
 
 
 export const Testimonials = () => {
-  const [open, setOpen] = useState(false); // Controla si la alerta se muestra
+  const [openAlert, setOpenAlert] = useState(false); 
+  const [openModal, setOpenModal] = useState(false); 
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpen(true); // Muestra la alerta después de 3 segundos
-    }, 3000); // Aparece después de 3 segundos
+ useEffect(() => {
+   const timer = setTimeout(() => {
+     setOpenAlert(true);
+   }, 3000);
 
-    return () => clearTimeout(timer); // Limpiar el timeout al desmontar el componente
-  }, []);
+   return () => clearTimeout(timer);
+ }, []);
 
-  /*const handleCloseAlert = () => {
-    setOpen(false); 
+ const handleYesClick = () => {
+   setOpenModal(true); 
+   setOpenAlert(false); 
+ };
+
+ const handleNoClick = () => {
+   setOpenAlert(false);
   };
-*/
-  const handleYesClick = () => {
-   
-    console.log("Redirigiendo al formulario...");
-    setOpen(false); 
-  };
-
-  const handleNoClick = () => {
-   
-    setOpen(false);
-  };
+  
   return (
     <Box
       id="testimonials"
       sx={{
-        // height: "100vh",
+     
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         position: "relative",
+        paddingBottom:10
       }}
     >
       <Box
@@ -79,7 +77,7 @@ export const Testimonials = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          paddingTop: 5,
+          paddingTop: 15,
           paddingLeft: 7,
         }}
       >
@@ -174,11 +172,11 @@ export const Testimonials = () => {
       </Box>
 
       {/* Alerta */}
-      {open && (
+      {openAlert && (
         <Box
           sx={{
             position: "fixed",
-            top: 60, // Puedes ajustar esto según lo que necesites
+            top: 60, 
             left: "84%",
             transform: "translateX(-50%)",
             zIndex: 1000,
@@ -191,10 +189,10 @@ export const Testimonials = () => {
               color: "white",
               fontWeight: "bold",
               display: "flex",
-              alignItems: "center", // Para alinear el ícono con el texto
+              alignItems: "center", 
             }}
-            // eslint-disable-next-line react/jsx-no-undef
-            icon={<IconGhost3Filled size={20} color="white" />} // Icono de Tabler
+         
+            icon={<IconGhost3Filled size={20} color="white" />} 
             action={
               <>
                 <Button color="inherit" size="small" onClick={handleYesClick}>
@@ -216,6 +214,8 @@ export const Testimonials = () => {
           </Alert>
         </Box>
       )}
+      {/* Modal con formulario */}
+      <ReviewFormModal open={openModal} onClose={() => setOpenModal(false)} />
     </Box>
   );
 }
