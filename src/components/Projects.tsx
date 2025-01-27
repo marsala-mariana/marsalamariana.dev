@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import image  from "../assets/bodyProject.png";
-
+import logoAdv from "../assets/logoAd.png"
 
 export const Projects = () => {
 
@@ -68,7 +68,7 @@ export const Projects = () => {
                   textAlign: "center",
                 }}
               >
-                11,000
+               Rouss
               </Typography>
               <Typography
                 sx={{
@@ -78,7 +78,7 @@ export const Projects = () => {
                   textTransform: "capitalize",
                 }}
               >
-                Solana Hacker House participants
+              web site
               </Typography>
             </Box>
           </Box>
@@ -93,16 +93,14 @@ export const Projects = () => {
               backgroundPosition: "center",
               borderRadius: 2,
             }}
-          >
-          
-          </Box>
+          ></Box>
         </Box>
         {/*  FILA 2*/}
         <Box
           sx={{
             width: "250px",
             height: "300px",
-            backgroundImage: `url('https://img.freepik.com/fotos-premium/imagen-fondo_910766-187.jpg')`, // Reemplaza con tu URL de imagen
+            backgroundImage: `url(${logoAdv})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             borderRadius: 2,
