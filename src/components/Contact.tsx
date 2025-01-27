@@ -1,17 +1,16 @@
 import { Box, Button, TextField, Typography } from '@mui/material'
-
 import image from "../assets/bodyProject.png";
 import { IconBrandWhatsappFilled, IconMailFilled, IconMapPinFilled } from '@tabler/icons-react';
+
 export const Contact = () => {
   return (
     <Box
       id="contact"
       sx={{
-        // height: "100vh",
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        paddingBottom: 20,
+        paddingBottom: 7,
         position: "relative",
       }}
     >
@@ -19,25 +18,6 @@ export const Contact = () => {
         sx={{
           display: "flex",
           paddingTop: 15,
-          paddingLeft: 7,
-        }}
-      >
-        <Typography
-          sx={{
-            fontSize: 13,
-            fontWeight: 900,
-            color: "white",
-            textTransform: "uppercase",
-          }}
-        >
-          - Contact
-        </Typography>
-      </Box>
-
-      <Box
-        sx={{
-          display: "flex",
-          paddingTop: 5,
           justifyContent: "space-around",
           alignItems: "flex-start",
         }}
@@ -78,7 +58,12 @@ export const Contact = () => {
                 borderRadius: "30%",
                 width: 24,
                 height: 24,
+                cursor: "pointer",
               }}
+              component="a"
+              href="https://wa.me/5491155800149?text=Hola%20Stephanie,%20me%20gustaría%20contactarte."
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <IconBrandWhatsappFilled size={14} color="white" />
             </Box>
@@ -98,7 +83,10 @@ export const Contact = () => {
                 borderRadius: "30%",
                 width: 24,
                 height: 24,
+                cursor: "pointer",
               }}
+              component="a"
+              href="mailto:stephaniemarsala08@gmail.com?subject=Contacto&body=Hola%20Stephanie,%20me%20gustaría%20contactarte."
             >
               <IconMailFilled size={14} color="white" />
             </Box>
@@ -132,11 +120,12 @@ export const Contact = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            //  height: "100px",
-            //   background: "linear-gradient(135deg, #0A0216, #0C1627)",
           }}
         >
           <Box
+            component="form"
+            action="https://formspree.io/f/manqeqzb"
+            method="POST"
             sx={{
               backgroundColor: "#2b0b3a47",
               borderRadius: "16px",
@@ -157,6 +146,7 @@ export const Contact = () => {
               Name
             </Typography>
             <TextField
+              name="name"
               fullWidth
               placeholder="Soni kumari"
               variant="outlined"
@@ -184,6 +174,7 @@ export const Contact = () => {
               Email
             </Typography>
             <TextField
+              name="email"
               fullWidth
               placeholder="Soniyo344@gmail.com"
               variant="outlined"
@@ -211,6 +202,7 @@ export const Contact = () => {
               Message
             </Typography>
             <TextField
+              name="message"
               fullWidth
               multiline
               rows={2}
@@ -233,6 +225,7 @@ export const Contact = () => {
 
             <Button
               variant="contained"
+              type="submit"
               sx={{
                 background: "linear-gradient(90deg, #e100ff, #00c4ff)",
                 borderRadius: 40,
@@ -252,6 +245,11 @@ export const Contact = () => {
             </Button>
           </Box>
         </Box>
+      </Box>
+      <Box sx={{ display: "flex", justifyContent: "center", paddingTop: 10 }}>
+        <Typography sx={{ color: "white", fontSize: 10 }}>
+          2025 - Marsala Mariana, All rights reserved
+        </Typography>
       </Box>
     </Box>
   );
