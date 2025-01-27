@@ -1,6 +1,8 @@
 import { Box, Typography } from '@mui/material'
 import image  from "../assets/bodyProject.png";
 import logoAdv from "../assets/logoAd.png"
+import app from "../assets/mokup-app.png"
+import nuvah from "../assets/nuvah.jpg"
 
 export const Projects = () => {
 
@@ -68,7 +70,7 @@ export const Projects = () => {
                   textAlign: "center",
                 }}
               >
-               Rouss
+                Rouss
               </Typography>
               <Typography
                 sx={{
@@ -78,7 +80,7 @@ export const Projects = () => {
                   textTransform: "capitalize",
                 }}
               >
-              web site
+                Website
               </Typography>
             </Box>
           </Box>
@@ -88,7 +90,7 @@ export const Projects = () => {
               gap: 2,
               width: "250px",
               height: "145px",
-              backgroundImage: `url('https://img.freepik.com/fotos-premium/fondo-colores-abstracto-descarga-gratuita_80983-1710.jpg')`, // Reemplaza con tu URL de imagen
+              backgroundImage: `url(${nuvah})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               borderRadius: 2,
@@ -148,7 +150,7 @@ export const Projects = () => {
                   textAlign: "center",
                 }}
               >
-                11,000
+                ADV
               </Typography>
               <Typography
                 sx={{
@@ -158,7 +160,7 @@ export const Projects = () => {
                   textTransform: "capitalize",
                 }}
               >
-                Solana Hacker House participants
+                Mobile App and Website
               </Typography>
             </Box>
           </Box>
@@ -168,7 +170,7 @@ export const Projects = () => {
           sx={{
             width: "250px",
             height: "300px",
-            backgroundImage: `url('https://img.freepik.com/fotos-premium/imagen-fondo_910766-187.jpg')`, // Reemplaza con tu URL de imagen
+            backgroundImage: `url(${app})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             borderRadius: 2,
