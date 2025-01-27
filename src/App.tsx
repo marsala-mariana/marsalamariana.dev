@@ -3,19 +3,14 @@ import {  CssBaseline } from "@mui/material";
 import { Home } from "./components/Home";
 import { Navbar } from "./components/Navbar";
 import { Projects } from "./components/Projects";
+import { Contact } from "./components/Contact";
+import { Testimonials } from "./components/Testimonials";
 
 const theme = createTheme({
   typography: {
     fontFamily: '"Poppins", sans-serif',
   },
-  palette: {
-    primary: {
-      main: "#1976d2",
-    },
-    secondary: {
-      main: "#dc004e",
-    },
-  },
+ 
 });
 
 function App() {
@@ -23,10 +18,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline>
         <Navbar />
-        
-           <Home />
-        <Projects/>
-       
+        <Home />
+        <Projects />
+        <Testimonials/>
+        <Contact/>
       </CssBaseline>
     </ThemeProvider>
   );
