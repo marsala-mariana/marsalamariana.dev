@@ -31,10 +31,10 @@ export const Testimonials = () => {
     return () => clearTimeout(timer); // Limpiar el timeout al desmontar el componente
   }, []);
 
-  const handleCloseAlert = () => {
+  /*const handleCloseAlert = () => {
     setOpen(false); 
   };
-
+*/
   const handleYesClick = () => {
    
     console.log("Redirigiendo al formulario...");
