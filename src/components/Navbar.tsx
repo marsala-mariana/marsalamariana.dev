@@ -27,8 +27,8 @@ export const Navbar = () => {
     >
       <Box
         sx={{
-          paddingInlineStart: { xs: 2, sm: 5 },
-          width: { xs: "22%", sm: "13%" },
+          paddingInlineStart: { xs: 2, sm: 0 , md: 0},
+          width: { xs: "22%", sm: "13%", md: "4%" },
           paddingTop: { xs: '0px', sm: '7px', md:'0px'},
         }}
       >
@@ -55,7 +55,7 @@ export const Navbar = () => {
         sx={{
           display: { xs: "flex" },
           justifyContent: { xs: "center" },
-          width: { xs: "100%", md: "92%" },
+          width: { xs: "100%", md: "96%" },
           paddingTop: { xs: "6px", sm: 0 },
         }}
       >
