@@ -17,9 +17,10 @@ export const Contact = () => {
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
           paddingTop: 15,
           justifyContent: "space-around",
-          alignItems: "flex-start",
+          alignItems: { xs: "center", sm: "flex-start" },
         }}
       >
         {/* columna 1*/}
@@ -120,6 +121,7 @@ export const Contact = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            paddingTop: { xs: 6, sm: 0 },
           }}
         >
           <Box
@@ -130,8 +132,8 @@ export const Contact = () => {
               backgroundColor: "#2b0b3a47",
               borderRadius: "16px",
               padding: "30px",
-              width: "400px",
-              height: "360px",
+              width: { xs: "357px", sm: "360px" , md: "400px"},
+              height: { xs: "343px", sm: "360px" },
               boxShadow: "0px -7px 24px #230f01",
             }}
           >

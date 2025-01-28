@@ -15,16 +15,23 @@ export const Navbar = () => {
         position: "fixed",
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center",
+        alignItems: { xs: "flex-start", md: "center" },
         top: 0,
         left: 0,
-        width: "100%",
+        width: { xs: "auto", sm: "100%" },
         backgroundColor: "none",
         zIndex: 1000,
         padding: 2,
+        flexDirection: { xs: "column", sm: "row" },
       }}
     >
-      <Box paddingInlineStart={5}>
+      <Box
+        sx={{
+          paddingInlineStart: { xs: 2, sm: 5 },
+          width: { xs: "22%", sm: "13%" },
+          paddingTop: { xs: '0px', sm: '7px', md:'0px'},
+        }}
+      >
         <a
           href="https://github.com/marsala-mariana"
           target="_blank"
@@ -44,7 +51,14 @@ export const Navbar = () => {
           <IconBrandLinkedinFilled size={18} color="white" />
         </a>
       </Box>
-      <Box sx={{ width: "62%" }}>
+      <Box
+        sx={{
+          display: { xs: "flex" },
+          justifyContent: { xs: "center" },
+          width: { xs: "100%", md: "92%" },
+          paddingTop: { xs: "6px", sm: 0 },
+        }}
+      >
         {navOptions.map((option) => (
           <Button key={option.route} href={option.route}>
             <Typography

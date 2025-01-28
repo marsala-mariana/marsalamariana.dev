@@ -14,17 +14,24 @@ export const Home: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: { xs: "flex-start", sm: "center" },
         textAlign: "center",
         backgroundImage: `url(${fondo})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         color: "white",
         position: "relative",
+        paddingTop: { xs: "56%", sm: "0%" },
       }}
     >
       {/* Contenido principal */}
-      <Typography sx={{ fontSize: 12, fontWeight: 800 }} gutterBottom>
+      <Typography
+        sx={{
+          fontSize: 12,
+          fontWeight: { xs: 400, sm: 800 },
+        }}
+        gutterBottom
+      >
         PRODUCT DESIGNER
       </Typography>
       <Typography
@@ -32,7 +39,7 @@ export const Home: React.FC = () => {
         sx={{
           fontWeight: 700,
           color: "#CC00ED",
-          fontSize: 44,
+          fontSize: { xs: 23, sm: 36, md: 44 },
         }}
       >
         Mariana Marsala
@@ -41,8 +48,7 @@ export const Home: React.FC = () => {
         variant="h4"
         sx={{
           fontWeight: 700,
-
-          fontSize: 44,
+          fontSize: { xs: 23, sm: 36, md: 44 },
         }}
       >
         Merging Technology <span style={{ color: "#ffb900" }}>and Design</span>

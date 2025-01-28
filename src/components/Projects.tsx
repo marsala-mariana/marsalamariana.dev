@@ -39,7 +39,10 @@ export const Projects = () => {
 
       {/* CAJA PRINCIPAL*/}
       <Box
-        sx={{ display: "flex", justifyContent: "center", gap: 1, marginTop: 5 }}
+        sx={{
+       display: { xs: "none", sm: "flex" },
+          justifyContent: "center", gap: 1, marginTop: 5
+        }}
       >
         {/* FILA 1*/}
         <Box

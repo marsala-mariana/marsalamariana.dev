@@ -46,20 +46,19 @@ export const Testimonials = () => {
     <Box
       id="testimonials"
       sx={{
-     
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         position: "relative",
-        paddingBottom:10
+        paddingBottom: 10,
       }}
     >
       <Box
         sx={{
           display: "flex",
-          paddingTop: 15,
+          paddingTop: { xs: "150px", sm: 15 },
           justifyContent: "flex-end",
-          paddingRight: 7,
+          paddingRight: { xs: "32px", sm: 7 },
         }}
       >
         <Typography
@@ -77,8 +76,8 @@ export const Testimonials = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          paddingTop: 15,
-          paddingLeft: 7,
+          paddingTop: { xs: 9, sm: 15 },
+          paddingLeft: { xs: 0, sm: 7 },
         }}
       >
         {projectReviews.map((review, index) => (
@@ -118,7 +117,13 @@ export const Testimonials = () => {
             </Box>
 
             {/* Descripción de la reseña */}
-            <Box sx={{ textAlign: "center", marginTop: 2, width: "48%" }}>
+            <Box
+              sx={{
+                textAlign: "center",
+                marginTop: 2,
+                width: { xs: "72%", sm: "48%" },
+              }}
+            >
               <Typography
                 sx={{
                   fontSize: 12,
@@ -176,11 +181,12 @@ export const Testimonials = () => {
         <Box
           sx={{
             position: "fixed",
-            top: 60, 
-            left: "84%",
+            top: { xs: '22%', sm: 60 },
+            left: { xs: '61%', sm: "78%", md: "84%" },
             transform: "translateX(-50%)",
             zIndex: 1000,
-            width: "35%",
+            width: { xs: '80%', sm: "47%", md: "35%" },
+         
           }}
         >
           <Alert
@@ -189,10 +195,9 @@ export const Testimonials = () => {
               color: "white",
               fontWeight: "bold",
               display: "flex",
-              alignItems: "center", 
+              alignItems: "center",
             }}
-         
-            icon={<IconGhost3Filled size={20} color="white" />} 
+            icon={<IconGhost3Filled size={20} color="white" />}
             action={
               <>
                 <Button color="inherit" size="small" onClick={handleYesClick}>
