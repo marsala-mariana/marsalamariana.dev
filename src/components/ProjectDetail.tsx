@@ -1,12 +1,20 @@
 import { Box, IconButton, Typography } from "@mui/material";
 import image from "../assets/bodyProject.png";
 import {IconArrowLeft, IconBrandAdobeIllustrator, IconBrandFigma, IconBrandWordpress, IconFileTypeCss } from "@tabler/icons-react";
-import imageRouss from "../assets/rouss.png"
-import { useNavigate } from "react-router-dom";
+//import imageRouss from "../assets/rouss.png"
+import { useNavigate, useParams } from "react-router-dom";
+import { projectsData } from "../utils/projectsData";
 
 
 export const ProjectDetail = () => {
   const navigate = useNavigate();
+   const { id } = useParams<{ id: string }>(); // Obtiene el ID desde la URL
+   const project = projectsData.find((p) => p.id === id); // Busca el proyecto en los datos
+
+   if (!project) {
+     return <p>Proyecto no encontrado</p>;
+   }
+
   
   return (
     <Box
@@ -22,7 +30,7 @@ export const ProjectDetail = () => {
     >
       {/* Botón de regreso */}
       <IconButton
-        onClick={() => navigate(-1)} 
+        onClick={() => navigate(-1)}
         sx={{
           position: "absolute",
           top: 58,
@@ -49,12 +57,12 @@ export const ProjectDetail = () => {
               textAlign: "center",
             }}
           >
-            Rouss Website
+            {project.nameProyect} - {project.plataforma}
           </Typography>
 
           {/* Contenedores de tecnologías */}
           <Box display="flex" gap={3} mb={4} flexWrap="wrap">
-            {[" Design UX - UI", "WordPress"].map((tech, index) => {
+            {project.technologies.map((tech, index) => {
               const isUXUI =
                 tech.toLowerCase().includes("ux") ||
                 tech.toLowerCase().includes("ui");
@@ -106,7 +114,7 @@ export const ProjectDetail = () => {
             sx={{
               width: { xs: "100%", md: "50%" },
               height: 290,
-              backgroundImage: `url(${imageRouss})`,
+              backgroundImage: `url(${project.coverImage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               borderRadius: "18px 0px 0px 18px",
@@ -154,41 +162,28 @@ export const ProjectDetail = () => {
                     fontWeight: 100,
                   }}
                 >
-                  Comencé el proyecto realizando una investigación exhaustiva
-                  sobre la marca 'Rouss Estética', analizando su identidad y
-                  público objetivo. Con base en esto, diseñé la interfaz de
-                  usuario (UI), creando un diseño moderno y alineado con la
-                  estética y valores de la marca. <br /> <br />
-                  También trabajé en la creación del logotipo de 'Rouss
-                  Estética', asegurándome de que reflejara su enfoque
-                  profesional y elegante. <br /> <br />
-                  Posteriormente, implementé el diseño utilizando WordPress,
-                  aprovechando sus herramientas y funcionalidades para optimizar
-                  la experiencia del usuario.
-                  <br /> <br />
-                  Durante el desarrollo, me aseguré de mejorar la navegación y
-                  la estética del sitio, garantizando una interfaz amigable,
-                  funcional y visualmente atractiva.
+                  {project.description}
                 </Typography>
               </Box>
             </Box>
 
-            <a
-              href="http://roussestetica.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                fontSize: 12,
-                color: "#A962FF",
-                marginTop: "12px",
-                fontWeight: 600,
-                textDecoration: "none",
-                display: "block",
-                cursor: "pointer",
-              }}
-            >
-              Enlace
-            </a>
+            {project.enlace && (
+              <a
+                href={project.enlace}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: 12,
+                  color: "#A962FF",
+                  display: "block",
+                  marginTop: "10px",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                }}
+              >
+               Enlace
+              </a>
+            )}
           </Box>
         </Box>
       </Box>

@@ -5,6 +5,7 @@ import {
   Routes,
   Route,
   useLocation,
+  matchPath,
 } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./components/Home";
@@ -20,14 +21,15 @@ const theme = createTheme({
 });
 
 function AppContent() {
-  const location = useLocation(); // Obtiene la ruta actual
+ const location = useLocation();
+
+ 
+ const isProjectDetail = matchPath("/project-detail/:id", location.pathname);
 
   return (
     <>
-      {/* Oculta la Navbar si la ruta es "/project-detail" */}
-      {location.pathname !== "/project-detail" && <Navbar />}
+      {!isProjectDetail && <Navbar />}
 
-      {/* Rutas para el contenido principal */}
       <Routes>
         <Route
           path="/"
@@ -41,8 +43,7 @@ function AppContent() {
           }
         />
 
-        {/* Ruta para el detalle del proyecto */}
-        <Route path="/project-detail" element={<ProjectDetail />} />
+        <Route path="/project-detail/:id" element={<ProjectDetail />} />
       </Routes>
     </>
   );

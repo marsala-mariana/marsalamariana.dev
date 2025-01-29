@@ -9,11 +9,13 @@ import { motion } from "framer-motion";
 export const Projects = () => {
   const navigate = useNavigate();
 
-  const handleProjectClick = () => {
+
+  const handleProjectClick = (id: string) => {
     setTimeout(() => {
-      navigate(`/project-detail`);
-    }, 500); 
+      navigate(`/project-detail/${id}`);
+    }, 500);
   };
+
 
   return (
     <Box
@@ -65,13 +67,13 @@ export const Projects = () => {
         >
           {/* CAJA UNO*/}
           <motion.div
-            
-            whileHover={{ scale: 1.05 }} 
-            whileTap={{ rotate: 30 }} 
-            onClick={handleProjectClick}
-            transition={{ duration: 0.5 }} 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ rotate: 30 }}
+            onClick={() => handleProjectClick("1")}
+            transition={{ duration: 0.5 }}
           >
             <Box
+              id="1"
               sx={{
                 width: "250px",
                 height: "145px",
@@ -106,30 +108,47 @@ export const Projects = () => {
               </Box>
             </Box>
           </motion.div>
+
           {/* CAJA dos*/}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ rotate: 30 }}
+            onClick={() => handleProjectClick("2")}
+            transition={{ duration: 0.5 }}
+          >
+            <Box
+              id="2"
+              sx={{
+                gap: 2,
+                width: "250px",
+                height: "145px",
+                backgroundImage: `url(${nuvah})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                borderRadius: 2,
+              }}
+            ></Box>
+          </motion.div>
+        </Box>
+        {/*  FILA 2*/}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ rotate: 30 }}
+          onClick={() => handleProjectClick("3")}
+          transition={{ duration: 0.5 }}
+        >
           <Box
+            id="3"
             sx={{
-              gap: 2,
               width: "250px",
-              height: "145px",
-              backgroundImage: `url(${nuvah})`,
+              height: "300px",
+              backgroundImage: `url(${logoAdv})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               borderRadius: 2,
             }}
           ></Box>
-        </Box>
-        {/*  FILA 2*/}
-        <Box
-          sx={{
-            width: "250px",
-            height: "300px",
-            backgroundImage: `url(${logoAdv})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            borderRadius: 2,
-          }}
-        ></Box>
+        </motion.div>
         {/* FILA 3*/}
         <Box
           sx={{
@@ -140,64 +159,88 @@ export const Projects = () => {
           }}
         >
           {/* CAJA tres*/}
-          <Box
-            sx={{
-              width: "250px",
-              height: "145px",
-              backgroundColor: "#19161C",
-              borderRadius: 2,
-              backgroundImage: `url('https://img.freepik.com/fotos-premium/fondo-colores-abstracto-descarga-gratuita_80983-1710.jpg')`, 
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          ></Box>
-          {/* CAJA cuatro*/}
-          <Box
-            sx={{
-              gap: 2,
-              width: "250px",
-              height: "145px",
-              backgroundColor: "#19161C",
-              borderRadius: 2,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ rotate: 30 }}
+            onClick={() => handleProjectClick("4")}
+            transition={{ duration: 0.5 }}
           >
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Typography
-                sx={{
-                  fontSize: 18,
-                  color: "#F087FF",
-                  textAlign: "center",
-                }}
-              >
-                ADV
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: 11,
-                  color: "white",
-                  textAlign: "center",
-                  textTransform: "capitalize",
-                }}
-              >
-                Mobile App and Website
-              </Typography>
+            <Box
+              id="4"
+              sx={{
+                width: "250px",
+                height: "145px",
+                backgroundColor: "#19161C",
+                borderRadius: 2,
+                backgroundImage: `url('https://img.freepik.com/fotos-premium/fondo-colores-abstracto-descarga-gratuita_80983-1710.jpg')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            ></Box>
+          </motion.div>
+          {/* CAJA cuatro*/}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ rotate: 30 }}
+            onClick={() => handleProjectClick("5")}
+            transition={{ duration: 0.5 }}
+          >
+            <Box
+              id="5"
+              sx={{
+                gap: 2,
+                width: "250px",
+                height: "145px",
+                backgroundColor: "#19161C",
+                borderRadius: 2,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Typography
+                  sx={{
+                    fontSize: 18,
+                    color: "#F087FF",
+                    textAlign: "center",
+                  }}
+                >
+                  ADV
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: 11,
+                    color: "white",
+                    textAlign: "center",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Mobile App and Website
+                </Typography>
+              </Box>
             </Box>
-          </Box>
+          </motion.div>
         </Box>
         {/*  FILA 4*/}
-        <Box
-          sx={{
-            width: "250px",
-            height: "300px",
-            backgroundImage: `url(${app})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            borderRadius: 2,
-          }}
-        ></Box>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ rotate: 30 }}
+          onClick={() => handleProjectClick("6")}
+          transition={{ duration: 0.5 }}
+        >
+          <Box
+            id="6"
+            sx={{
+              width: "250px",
+              height: "300px",
+              backgroundImage: `url(${app})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              borderRadius: 2,
+            }}
+          ></Box>
+        </motion.div>
       </Box>
     </Box>
   );
