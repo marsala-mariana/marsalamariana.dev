@@ -1,13 +1,18 @@
-import { Box, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import image from "../assets/bodyProject.png";
-import {IconBrandGithubFilled, IconBrandTrello } from "@tabler/icons-react";
-import imageRouss from"../assets/rouss.png"
+import {IconArrowLeft, IconBrandAdobeIllustrator, IconBrandFigma, IconBrandWordpress, IconFileTypeCss } from "@tabler/icons-react";
+import imageRouss from "../assets/rouss.png"
+import { useNavigate } from "react-router-dom";
+
 
 export const ProjectDetail = () => {
+  const navigate = useNavigate();
+  
   return (
     <Box
       id="details"
       sx={{
+        height: "100vh",
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -15,14 +20,41 @@ export const ProjectDetail = () => {
         paddingBottom: 20,
       }}
     >
+      {/* Botón de regreso */}
+      <IconButton
+        onClick={() => navigate(-1)} // Navega a la pantalla anterior
+        sx={{
+          position: "absolute",
+          top: 58,
+          left: 70,
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          color: "white",
+          "&:hover": { backgroundColor: "rgba(0, 0, 0, 0.8)" },
+        }}
+      >
+        <IconArrowLeft size={24} />
+      </IconButton>
       <Box
         width="100%"
-        sx={{ display: "flex", paddingTop: 15, justifyContent: "center" }}
+        sx={{ display: "flex", paddingTop: 20, justifyContent: "center" }}
       >
-        {/* Contenedores de tecnologías */}
-        <Box display="flex" gap={3} mb={4} flexWrap="wrap" width="58%">
-          {[ " Design UX - UI", "WordPress"].map(
-            (tech, index) => {
+        <Box
+          width="58%"
+          sx={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <Typography
+            sx={{
+              fontSize: 15,
+              color: "#19FB9B",
+              textAlign: "center",
+            }}
+          >
+            Rouss Website
+          </Typography>
+
+          {/* Contenedores de tecnologías */}
+          <Box display="flex" gap={3} mb={4} flexWrap="wrap">
+            {[" Design UX - UI", "WordPress"].map((tech, index) => {
               const isUXUI =
                 tech.toLowerCase().includes("ux") ||
                 tech.toLowerCase().includes("ui");
@@ -42,19 +74,26 @@ export const ProjectDetail = () => {
                   }}
                 >
                   <Typography
-                    sx={{ fontSize: 8, fontWeight: 500, color: "white" }}
+                    sx={{ fontSize: 10, fontWeight: 500, color: "white" }}
                   >
                     {tech}
                   </Typography>
                 </Box>
               );
-            }
-          )}
+            })}
+          </Box>
         </Box>
       </Box>
 
       {/* Contenedor principal */}
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: 5,
+        }}
+      >
         <Box
           display="flex"
           flexDirection={{ xs: "column", md: "row" }}
@@ -66,7 +105,7 @@ export const ProjectDetail = () => {
           <Box
             sx={{
               width: { xs: "100%", md: "50%" },
-              height: 250,
+              height: 290,
               backgroundImage: `url(${imageRouss})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
@@ -78,43 +117,82 @@ export const ProjectDetail = () => {
           <Box
             sx={{
               width: { xs: "100%", md: "50%" },
-              height: 250,
+              height: 290,
               backgroundColor: "#1A1A1A",
               borderRadius: "0px 18px 18px 0px",
               padding: 3,
             }}
           >
-            <Typography
-              sx={{ fontSize: 18, color: "white", fontWeight: 600, mt: 2 }}
-            >
-              Rouss Estetica
-            </Typography>
-            <Box sx={{ width: "90%" }}>
-              <Typography
+            <Box sx={{ width: "98%" }}>
+              <Box
                 sx={{
-                  color: "white",
-                  mt: 2,
-                  fontSize: 12,
-                  textAlign: "justify",
-                  fontWeight: 100,
+                  height: 176,
+                  overflowY: "auto",
+                  paddingRight: 1,
+                  "&::-webkit-scrollbar": {
+                    width: "5px",
+                  },
+                  "&::-webkit-scrollbar-track": {
+                    background: "white",
+                    borderRadius: "8px",
+                  },
+                  "&::-webkit-scrollbar-thumb": {
+                    background: "linear-gradient(90deg, #e100ff, #00c4ff)",
+                    borderRadius: "8px",
+                  },
+                  "&::-webkit-scrollbar-thumb:hover": {
+                    background: "#ff00ff",
+                  },
                 }}
               >
-                Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.
-                Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.
-                Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.
-              </Typography>
+                <Typography
+                  sx={{
+                    color: "white",
+                    mt: 2,
+                    fontSize: 12,
+                    textAlign: "justify",
+                    fontWeight: 100,
+                  }}
+                >
+                  Comencé el proyecto realizando una investigación exhaustiva
+                  sobre la marca 'Rouss Estética', analizando su identidad y
+                  público objetivo. Con base en esto, diseñé la interfaz de
+                  usuario (UI), creando un diseño moderno y alineado con la
+                  estética y valores de la marca. <br /> <br />
+                  También trabajé en la creación del logotipo de 'Rouss
+                  Estética', asegurándome de que reflejara su enfoque
+                  profesional y elegante. <br /> <br />
+                  Posteriormente, implementé el diseño utilizando WordPress,
+                  aprovechando sus herramientas y funcionalidades para optimizar
+                  la experiencia del usuario.
+                  <br /> <br />
+                  Durante el desarrollo, me aseguré de mejorar la navegación y
+                  la estética del sitio, garantizando una interfaz amigable,
+                  funcional y visualmente atractiva.
+                </Typography>
+              </Box>
             </Box>
 
-            <Typography
-              sx={{ fontSize: 12, color: "#A962FF", mt: 2, fontWeight: 600 }}
+            <a
+              href="http://roussestetica.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: 12,
+                color: "#A962FF",
+                marginTop: "12px",
+                fontWeight: 600,
+                textDecoration: "none",
+                display: "block",
+                cursor: "pointer",
+              }}
             >
               Enlace
-            </Typography>
+            </a>
           </Box>
         </Box>
       </Box>
 
-      {/* Barra inferior con logos 
       <Box
         sx={{
           width: "100%",
@@ -138,32 +216,14 @@ export const ProjectDetail = () => {
             backgroundColor: "#261F264D",
           }}
         >
-          <IconBrandGithubFilled size={28} color="green" />
+          <IconBrandFigma size={28} color="#7a00a3" />
 
-          <IconBrandTrello size={28} color="white" />
-          <Box
-            sx={{
-              width: "30px",
-              height: "30px",
-              backgroundColor: "orange",
-              borderRadius: "50%",
-            }}
-          />
-          <Typography
-            color="lightgreen"
-            sx={{
-              border: "1px solid lightgreen",
-              padding: "2px 6px",
-              borderRadius: 1,
-            }}
-          >
-            Trello
-          </Typography>
+          <IconBrandAdobeIllustrator size={28} color="#FF7C00" />
+
+          <IconFileTypeCss size={28} color="#FFFFFF" />
+          <IconBrandWordpress size={28} color="#21759B" />
         </Box>
       </Box>
-
-*/}
-
     </Box>
   );
 };

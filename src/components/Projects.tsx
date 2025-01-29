@@ -4,15 +4,19 @@ import logoAdv from "../assets/logoAd.png"
 import app from "../assets/mokup-app.png"
 import nuvah from "../assets/nuvah.jpg"
 import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 export const Projects = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-// Función para navegar a ProjectDetail con parámetros opcionales
-const handleProjectClick = (projectName: string) => {
-  navigate(`/project-detail`, { state: { project: projectName } });
+  // Función para navegar a ProjectDetail
+  const handleProjectClick = () => {
+    // Usamos un pequeño retraso para aplicar la animación antes de redirigir
+    setTimeout(() => {
+      navigate(`/project-detail`);
+    }, 500); // Aseguramos que la animación dure antes de la redirección
   };
-  
+
   return (
     <Box
       id="projects"
@@ -47,8 +51,10 @@ const handleProjectClick = (projectName: string) => {
       {/* CAJA PRINCIPAL*/}
       <Box
         sx={{
-       display: { xs: "none", sm: "flex" },
-          justifyContent: "center", gap: 1, marginTop: 5
+          display: { xs: "none", sm: "flex" },
+          justifyContent: "center",
+          gap: 1,
+          marginTop: 5,
         }}
       >
         {/* FILA 1*/}
@@ -61,42 +67,48 @@ const handleProjectClick = (projectName: string) => {
           }}
         >
           {/* CAJA UNO*/}
-          <Box
-            sx={{
-              width: "250px",
-              height: "145px",
-              backgroundColor: "#19161C",
-              borderRadius: 2,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-cursor: "pointer"
-
-            }}
-            onClick={() => handleProjectClick("Rouss")}
+          <motion.div
+            // Aplicamos el efecto de animación con giro
+            whileHover={{ scale: 1.05 }} // Cuando pasamos el cursor, el elemento se agranda
+            whileTap={{ rotate: 15 }} // Al hacer clic, el elemento gira ligeramente
+            onClick={handleProjectClick}
+            transition={{ duration: 0.3 }} // Duración de la animación
           >
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Typography
-                sx={{
-                  fontSize: 18,
-                  color: "#19FB9B",
-                  textAlign: "center",
-                }}
-              >
-                Rouss
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: 11,
-                  color: "white",
-                  textAlign: "center",
-                  textTransform: "capitalize",
-                }}
-              >
-                Website
-              </Typography>
+            <Box
+              sx={{
+                width: "250px",
+                height: "145px",
+                backgroundColor: "#19161C",
+                borderRadius: 2,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Typography
+                  sx={{
+                    fontSize: 18,
+                    color: "#19FB9B",
+                    textAlign: "center",
+                  }}
+                >
+                  Rouss
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: 11,
+                    color: "white",
+                    textAlign: "center",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Website
+                </Typography>
+              </Box>
             </Box>
-          </Box>
+          </motion.div>
           {/* CAJA dos*/}
           <Box
             sx={{
