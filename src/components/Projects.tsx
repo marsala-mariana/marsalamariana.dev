@@ -3,9 +3,16 @@ import image  from "../assets/bodyProject.png";
 import logoAdv from "../assets/logoAd.png"
 import app from "../assets/mokup-app.png"
 import nuvah from "../assets/nuvah.jpg"
+import { useNavigate } from 'react-router-dom';
 
 export const Projects = () => {
+const navigate = useNavigate();
 
+// Función para navegar a ProjectDetail con parámetros opcionales
+const handleProjectClick = (projectName: string) => {
+  navigate(`/project-detail`, { state: { project: projectName } });
+  };
+  
   return (
     <Box
       id="projects"
@@ -63,7 +70,10 @@ export const Projects = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+cursor: "pointer"
+
             }}
+            onClick={() => handleProjectClick("Rouss")}
           >
             <Box sx={{ display: "flex", flexDirection: "column" }}>
               <Typography

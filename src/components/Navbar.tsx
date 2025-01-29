@@ -2,10 +2,10 @@ import { Box, Button, Typography } from "@mui/material";
 import {  IconBrandGithubFilled,IconBrandLinkedinFilled } from "@tabler/icons-react";
 
 const navOptions = [
-  { text: "Home", route: "#home" },
-  { text: "Projects", route: "#projects" },
-  { text: "Testimonials", route: "#testimonials" },
-  { text: "Contact", route: "#contact" },
+  { text: "Home", route: "/" },
+  { text: "Projects", route: "/projects" },
+  { text: "Testimonials", route: "/testimonials" },
+  { text: "Contact", route: "/contact" },
 ];
 
 export const Navbar = () => {
