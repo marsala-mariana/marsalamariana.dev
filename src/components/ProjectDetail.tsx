@@ -22,7 +22,7 @@ export const ProjectDetail = () => {
     >
       {/* Botón de regreso */}
       <IconButton
-        onClick={() => navigate(-1)} // Navega a la pantalla anterior
+        onClick={() => navigate(-1)} 
         sx={{
           position: "absolute",
           top: 58,

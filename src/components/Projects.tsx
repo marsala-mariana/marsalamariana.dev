@@ -9,19 +9,16 @@ import { motion } from "framer-motion";
 export const Projects = () => {
   const navigate = useNavigate();
 
-  // Función para navegar a ProjectDetail
   const handleProjectClick = () => {
-    // Usamos un pequeño retraso para aplicar la animación antes de redirigir
     setTimeout(() => {
       navigate(`/project-detail`);
-    }, 500); // Aseguramos que la animación dure antes de la redirección
+    }, 500); 
   };
 
   return (
     <Box
       id="projects"
       sx={{
-        //  height: "100vh",
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -68,11 +65,11 @@ export const Projects = () => {
         >
           {/* CAJA UNO*/}
           <motion.div
-            // Aplicamos el efecto de animación con giro
-            whileHover={{ scale: 1.05 }} // Cuando pasamos el cursor, el elemento se agranda
-            whileTap={{ rotate: 15 }} // Al hacer clic, el elemento gira ligeramente
+            
+            whileHover={{ scale: 1.05 }} 
+            whileTap={{ rotate: 30 }} 
             onClick={handleProjectClick}
-            transition={{ duration: 0.3 }} // Duración de la animación
+            transition={{ duration: 0.5 }} 
           >
             <Box
               sx={{
@@ -149,7 +146,7 @@ export const Projects = () => {
               height: "145px",
               backgroundColor: "#19161C",
               borderRadius: 2,
-              backgroundImage: `url('https://img.freepik.com/fotos-premium/fondo-colores-abstracto-descarga-gratuita_80983-1710.jpg')`, // Reemplaza con tu URL de imagen
+              backgroundImage: `url('https://img.freepik.com/fotos-premium/fondo-colores-abstracto-descarga-gratuita_80983-1710.jpg')`, 
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
