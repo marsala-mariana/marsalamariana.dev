@@ -60,7 +60,10 @@ export const Home: React.FC = () => {
         Full Stack Developer, UX/UI Designer y Creativa Visual
       </Typography>
 
-      <Box sx={{ position: "absolute", bottom: 28 }}>
+      <Box sx={{
+        position: "absolute",
+        bottom: {xs:'150px',sm:28,md:28}
+      }}>
         <Button
           variant="contained"
           sx={{
