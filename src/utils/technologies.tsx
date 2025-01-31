@@ -1,66 +1,124 @@
 
 import { Typography } from "@mui/material";
-import {
-  IconBrandNextjs,
-  IconBrandTypescript,
-  IconBrandWordpress,
-  IconFileTypeCss,
-  IconBrandAdobeIllustrator,
-  IconBrandFigma,
-  IconBrandGithub,
-  IconBrandReactNative,
-  IconBrandAndroid,
-} from "@tabler/icons-react";
 
 export const technologyIcons = [
   {
     technology: "Figma",
-    icon: <IconBrandFigma size={20} color="white" />,
+    icon: (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
+        Figma
+      </Typography>
+    ),
   },
   {
     technology: "Adobe Illustrator",
-    icon: <IconBrandAdobeIllustrator size={20} color="#FF7C00" />,
+    icon: (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
+        Adobe Illustrator
+      </Typography>
+    ),
   },
   {
     technology: "CSS",
-    icon: <IconFileTypeCss size={20} color="white" />,
+    icon: (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
+        CSS
+      </Typography>
+    ),
   },
   {
     technology: "WordPress",
-    icon: <IconBrandWordpress size={20} color="#21759B" />,
+    icon: (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
+        WordPress
+      </Typography>
+    ),
   },
   {
     technology: "Next.js",
-    icon: <IconBrandNextjs size={20} color="white" />,
+    icon: (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
+        Next.Js
+      </Typography>
+    ),
   },
   {
     technology: "TypeScript",
-    icon: <IconBrandTypescript size={20} color="#007ACC" />,
+    icon: (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
+        TypeScript
+      </Typography>
+    ),
   },
   {
     technology: "Material-UI",
     icon: (
-      <Typography variant="body2" sx={{ color: "#0081CB" }}>
-        Material-UI
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
+        Material UI
       </Typography>
     ),
   },
   {
     technology: "GitHub",
-    icon: <IconBrandGithub size={20} color="#ffffff" />,
+    icon: (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
+        GitHub
+      </Typography>
+    ),
   },
   {
     technology: "React Native",
-    icon: <IconBrandReactNative size={20} color="white" />,
+    icon: (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
+      React Native
+      </Typography>
+    ),
   },
   {
     technology: "Android Studio",
-    icon: <IconBrandAndroid size={20} color="white" />,
+    icon: (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
+        Android Studio
+      </Typography>
+    ),
   },
   {
     technology: "Expo",
     icon: (
-      <Typography variant="body2" sx={{ color: "#ffffff" }}>
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
         Expo
       </Typography>
     ),
@@ -68,7 +126,10 @@ export const technologyIcons = [
   {
     technology: "Trello",
     icon: (
-      <Typography variant="body2" sx={{ color: "#0079BF" }}>
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: 10, fontWeight: 600 }}
+      >
         Trello
       </Typography>
     ),

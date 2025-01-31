@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { projectsData } from "../utils/projectsData";
 import { useEffect, useState } from "react";
 import { technologyIcons } from "../utils/technologies";
+import { motion } from "framer-motion";
 
 
 export const ProjectDetail = () => {
@@ -39,8 +40,9 @@ const currentImage = Array.isArray(project?.coverImage)
     <Box
       id="details"
       sx={{
-        height: { xs: "122vh", sm: "100vh", md: "100vh" },
-
+        // height: { xs: "122vh", sm: "100vh", md: "100vh" },
+        minHeight: "100vh",
+        height: "auto",
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -63,11 +65,20 @@ const currentImage = Array.isArray(project?.coverImage)
       </IconButton>
       <Box
         width="100%"
-        sx={{ display: "flex", paddingTop: 15, justifyContent: "center" }}
+        sx={{
+          display: "flex",
+
+          paddingTop: 15,
+          justifyContent: "center",
+        }}
       >
         <Box
           width={{ xs: "85%", sm: "85%", md: "58%" }}
-          sx={{ display: "flex", justifyContent: "space-between" }}
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: { xs: "column", sm: "row", md: "row" },
+          }}
         >
           <Typography
             sx={{
@@ -80,7 +91,13 @@ const currentImage = Array.isArray(project?.coverImage)
           </Typography>
 
           {/* Contenedores de tecnologías */}
-          <Box display="flex" gap={3} mb={2} flexWrap="wrap">
+          <Box
+            display="flex"
+            gap={3}
+            mb={2}
+            flexWrap="wrap"
+            marginTop={{ xs: 2, sm: 0, md: 0 }}
+          >
             {project?.etiqueta &&
               project.etiqueta.map((tech, index) => {
                 const isUXUI =
@@ -162,7 +179,7 @@ const currentImage = Array.isArray(project?.coverImage)
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                   //   borderRadius: "18px 0px 0px 18px",
+                      //   borderRadius: "18px 0px 0px 18px",
                     }}
                   />
                 ))}
@@ -285,32 +302,38 @@ const currentImage = Array.isArray(project?.coverImage)
             padding: 1,
             borderRadius: 2,
             justifyContent: "space-around",
-            width: {xs: "75%", sm: "85%", md: "58%" },
+            width: { xs: "75%", sm: "85%", md: "58%" },
             height: "40px",
             backgroundColor: "#261F264D",
           }}
         >
-          {project.technologies.map((tech, index) => {
-            // Find the corresponding tech icon
-            const techObject = technologyIcons.find(
-              (item) => item.technology === tech
-            );
+          <motion.div
+            style={{ display: "flex", gap: 40, alignItems: "center" }}
+            animate={{ x: ["0%", "-100%"] }}
+            transition={{ ease: "linear", duration: 10, repeat: Infinity }}
+          >
+            {project.technologies.map((tech, index) => {
+              // Find the corresponding tech icon
+              const techObject = technologyIcons.find(
+                (item) => item.technology === tech
+              );
 
-            return techObject ? (
-              <Box
-                key={index}
-                sx={{ display: "flex", alignItems: "center", marginRight: 1 }}
-              >
-                {typeof techObject.icon === "string" ? (
-                  <Typography variant="body2" sx={{ color: "white" }}>
-                    {techObject.icon}
-                  </Typography>
-                ) : (
-                  techObject.icon
-                )}
-              </Box>
-            ) : null;
-          })}
+              return techObject ? (
+                <Box
+                  key={index}
+                  sx={{ display: "flex", alignItems: "center", marginRight: 1 }}
+                >
+                  {typeof techObject.icon === "string" ? (
+                    <Typography variant="body2" sx={{ color: "white" }}>
+                      {techObject.icon}
+                    </Typography>
+                  ) : (
+                    techObject.icon
+                  )}
+                </Box>
+              ) : null;
+            })}
+          </motion.div>
         </Box>
       </Box>
     </Box>

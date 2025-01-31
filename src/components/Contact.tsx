@@ -132,7 +132,7 @@ export const Contact = () => {
               backgroundColor: "#2b0b3a47",
               borderRadius: "16px",
               padding: "30px",
-              width: { xs: "357px", sm: "360px" , md: "400px"},
+              width: { xs: "357px", sm: "360px", md: "400px" },
               height: { xs: "343px", sm: "360px" },
               boxShadow: "0px -7px 24px #230f01",
             }}
@@ -150,7 +150,7 @@ export const Contact = () => {
             <TextField
               name="name"
               fullWidth
-              placeholder="Soni kumari"
+              placeholder="name"
               variant="outlined"
               sx={{
                 mb: 2,
@@ -178,7 +178,7 @@ export const Contact = () => {
             <TextField
               name="email"
               fullWidth
-              placeholder="Soniyo344@gmail.com"
+              placeholder="email"
               variant="outlined"
               sx={{
                 mb: 2,
@@ -208,7 +208,7 @@ export const Contact = () => {
               fullWidth
               multiline
               rows={2}
-              placeholder="How can I help?"
+              placeholder="Message"
               variant="outlined"
               sx={{
                 mb: 2,
