@@ -265,7 +265,7 @@ const currentImage = Array.isArray(project?.coverImage)
                   textDecoration: "none",
                 }}
               >
-                Enlace
+                Link
               </a>
             ) : (
               <span
@@ -277,7 +277,7 @@ const currentImage = Array.isArray(project?.coverImage)
                   fontWeight: 600,
                 }}
               >
-                En Progreso
+                In Progress
               </span>
             )}
           </Box>

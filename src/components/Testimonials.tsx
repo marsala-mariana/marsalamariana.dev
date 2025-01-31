@@ -181,12 +181,11 @@ export const Testimonials = () => {
         <Box
           sx={{
             position: "fixed",
-            top: { xs: '22%', sm: 60 },
-            left: { xs: '61%', sm: "78%", md: "84%" },
+            top: { xs: "22%", sm: 60 },
+            left: { xs: "61%", sm: "78%", md: "84%" },
             transform: "translateX(-50%)",
             zIndex: 1000,
-            width: { xs: '80%', sm: "47%", md: "35%" },
-         
+            width: { xs: "80%", sm: "47%", md: "35%" },
           }}
         >
           <Alert
@@ -201,12 +200,24 @@ export const Testimonials = () => {
             action={
               <>
                 <Button color="inherit" size="small" onClick={handleYesClick}>
-                  <Typography sx={{ fontSize: 12, textTransform: "none" }}>
+                  <Typography
+                    sx={{
+                      fontSize: 12,
+                      textTransform: "none",
+                      fontWeight: 600,
+                    }}
+                  >
                     Sí
                   </Typography>
                 </Button>
                 <Button color="inherit" size="small" onClick={handleNoClick}>
-                  <Typography sx={{ fontSize: 12, textTransform: "none" }}>
+                  <Typography
+                    sx={{
+                      fontSize: 12,
+                      textTransform: "none",
+                      fontWeight: 600,
+                    }}
+                  >
                     No
                   </Typography>
                 </Button>
