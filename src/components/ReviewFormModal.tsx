@@ -82,12 +82,12 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
       <Box
         sx={{
           position: "absolute",
-          top: "50%",
+          top: { xs: "53%", sm: "50%", md: "50%" },
           left: "50%",
           transform: "translate(-50%, -50%)",
           padding: "30px",
-          width: "500px",
-          height: "500px",
+          width: { xs: "379px", sm: "500px", md: "500px" },
+          height: { xs: "438px", sm: "500px", md: "500px" },
           backgroundColor: "#0c000c",
           borderRadius: "10px",
           boxShadow: "0px -7px 24px #230f01",
@@ -116,7 +116,6 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
             fontWeight: "600",
             mb: 3,
             textAlign: "center",
-
           }}
         >
           Deja tu reseña

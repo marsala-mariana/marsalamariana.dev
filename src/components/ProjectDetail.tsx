@@ -39,7 +39,7 @@ const currentImage = Array.isArray(project?.coverImage)
     <Box
       id="details"
       sx={{
-        height: "100vh",
+        height: { xs: "122vh", sm: "100vh", md: "100vh" },
 
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
@@ -52,8 +52,8 @@ const currentImage = Array.isArray(project?.coverImage)
         onClick={() => navigate(-1)}
         sx={{
           position: "absolute",
-          top: 58,
-          left: 70,
+          top: { xs: 50, sm: 50, md: 58 },
+          left: { xs: 23, sm: 49, md: 70 },
           backgroundColor: "rgba(0, 0, 0, 0.5)",
           color: "white",
           "&:hover": { backgroundColor: "rgba(0, 0, 0, 0.8)" },
@@ -66,7 +66,7 @@ const currentImage = Array.isArray(project?.coverImage)
         sx={{ display: "flex", paddingTop: 15, justifyContent: "center" }}
       >
         <Box
-          width="58%"
+          width={{ xs: "85%", sm: "85%", md: "58%" }}
           sx={{ display: "flex", justifyContent: "space-between" }}
         >
           <Typography
@@ -124,16 +124,20 @@ const currentImage = Array.isArray(project?.coverImage)
       >
         <Box
           display="flex"
-          flexDirection={{ xs: "column", md: "row" }}
+          flexDirection={{ xs: "column", sm: "row", md: "row" }}
           alignItems="center"
           justifyContent="center"
-          width="58%"
+          //width="58%"
+          width={{ xs: "75%", sm: "85%", md: "58%" }}
         >
           <Box
             sx={{
               width: { xs: "100%", md: "50%" },
               height: 250,
-              borderRadius: "18px 0px 0px 18px",
+              borderRadius: {
+                xs: "18px 18px 0px 0px",
+                sm: "18px 0px 0px 18px",
+              },
               position: "relative",
               overflow: "hidden",
             }}
@@ -158,7 +162,7 @@ const currentImage = Array.isArray(project?.coverImage)
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      borderRadius: "18px 0px 0px 18px",
+                   //   borderRadius: "18px 0px 0px 18px",
                     }}
                   />
                 ))}
@@ -186,7 +190,10 @@ const currentImage = Array.isArray(project?.coverImage)
               width: { xs: "100%", md: "50%" },
               height: 250,
               backgroundColor: "#1A1A1A",
-              borderRadius: "0px 18px 18px 0px",
+              borderRadius: {
+                xs: "0px 0px 18px 18px",
+                sm: "18px 0px 0px 18px",
+              },
               padding: 3,
             }}
           >
@@ -278,7 +285,7 @@ const currentImage = Array.isArray(project?.coverImage)
             padding: 1,
             borderRadius: 2,
             justifyContent: "space-around",
-            width: "58%",
+            width: {xs: "75%", sm: "85%", md: "58%" },
             height: "40px",
             backgroundColor: "#261F264D",
           }}
