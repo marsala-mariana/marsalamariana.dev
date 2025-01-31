@@ -9,9 +9,11 @@ import vasos from"../assets/vasos.png";
 import identiAdv from "../assets/identidadAdv.jpg"
 import cartelADV from "../assets/carteladv.png";
 
-import movilAppADV from "../assets/MobileADVAPP-01.png"
-import appRE from "../assets/iphone15.png"
-import mokups from "../assets/15ockup.jpeg"
+
+import mosaico from "../assets/MockupMosaic.jpeg"
+import mak from "../assets/MacBook.png"
+import cover from "../assets/Cover.jpg"
+//import screen from "../assets/Screens.jpeg"
 
 export const projectsData = [
   {
@@ -19,7 +21,7 @@ export const projectsData = [
     nameProyect: "Rouss",
     plataforma: "Website",
     coverImage: roussFoto,
-    technologies: ["WordPress", "Figma", "Adobe Illustraitor", "CSS"],
+    technologies: ["WordPress", "Figma", "Adobe Illustrator", "CSS"],
     etiqueta: ["Design UX - UI"],
     description:
       "Comencé el proyecto realizando una investigación exhaustiva sobre la marca 'Rouss Estética', analizando su identidad y público objetivo.\n\nCon base en esto, diseñé la interfaz de usuario (UI), creando un diseño moderno y alineado con la estética y valores de la marca. También trabajé en la creación del logotipo de 'Rouss Estética', asegurándome de que reflejara su enfoque profesional y elegante.\n\nPosteriormente, implementé el diseño utilizando WordPress, aprovechando sus herramientas y funcionalidades para optimizar la experiencia del usuario.\n\nDurante el desarrollo, me aseguré de mejorar la navegación y la estética del sitio, garantizando una interfaz amigable, funcional y visualmente atractiva.",
@@ -31,7 +33,7 @@ export const projectsData = [
     nameProyect: "Nuvah",
     plataforma: "Logo",
     coverImage: [nuvahsing, etiqueta, logoNu],
-    technologies: ["Adobe Illustraitor"],
+    technologies: ["Adobe Illustrator"],
     etiqueta: ["Design UX - UI"],
     description:
       "Para este logo, realicé una investigación y entrevista con la marca para entender sus objetivos y lo que quería transmitir.\n\nCon esa información, diseñé un logo simple y moderno en Adobe Illustrator, utilizando colores frescos que reflejan la esencia de la marca y su enfoque juvenil y dinámico",
@@ -41,59 +43,60 @@ export const projectsData = [
     nameProyect: "ADV",
     plataforma: "Logo",
     coverImage: [logoAdv, vasos, identiAdv, cartelADV],
-    technologies: ["Adobe Illustraitor"],
+    technologies: ["Adobe Illustrator"],
     etiqueta: ["Design UX - UI"],
     description:
-      "Para este logo, realicé una investigación y entrevista con la marca para entender sus objetivos y lo que quería transmitir.\n\nCon esa información, diseñé un logo simple y moderno en Adobe Illustrator, utilizando colores frescos que reflejan la esencia de la marca y su enfoque juvenil y dinámico",
+      "Para este logo, me basé en la aplicación 'A Dónde Vamos?', tomando como referencia el esquema de colores de la app. \n\nMe enfoqué en jugar con la abreviación del nombre, creando un diseño que transmitiera dinamismo y modernidad. \n\nUtilicé Adobe Illustrator para desarrollar un logo simple pero llamativo, que reflejara la esencia de la plataforma y su enfoque juvenil y accesible.",
   },
   {
     id: "4",
     nameProyect: "Software de Gestión de Comercios",
     plataforma: "Software",
-    coverImage:
-      "https://img.freepik.com/fotos-premium/fondo-colores-abstracto-descarga-gratuita_80983-1710.jpg",
+    coverImage: mak,
+
     technologies: [
-      "Adobe Illustraitor",
-      "Next.Js",
-      "Typescript",
-      "Meterial-UI",
-      "CI/CD con GitHub Actions",
+      "Adobe Illustrator",
+      "Next.js",
+      "TypeScript",
+      "Material-UI",
+      "GitHub",
     ],
     etiqueta: ["Design UX - UI", "Developer Front-end"],
     description:
-      "Lidero el diseño, desarrollo y ejecución de un sistema de gestión de comercios utilizando Next.js, TypeScript y Material-UI. Desarrollo el código base, implementando funcionalidades clave y asegurando un rendimiento eficiente y escalable. Realizo investigación de usuarios (UX Research) para identificar necesidades y transformar insights en interfaces intuitivas y funcionales. Diseño interfaces responsivas y accesibles que optimizan la experiencia del usuario. Implemento flujos de trabajo automatizados mediante pipelines de CI/CD con GitHub Actions, mejorando la eficiencia del desarrollo.",
+      "Lidero el diseño, desarrollo y ejecución de un sistema de gestión de comercios utilizando Next.js, TypeScript y Material-UI. \n\nDesarrollo el código base, implementando funcionalidades clave y asegurando un rendimiento eficiente y escalable. \n\nRealizo investigación de usuarios (UX Research) para identificar necesidades y transformar insights en interfaces intuitivas y funcionales. Diseño interfaces responsivas y accesibles que optimizan la experiencia del usuario. \n\nImplemento flujos de trabajo automatizados mediante pipelines de CI/CD con GitHub Actions, mejorando la eficiencia del desarrollo.",
     enlace: "",
   },
   {
     id: "5",
     nameProyect: "ADV",
-    coverImages: movilAppADV,
+    coverImages: mosaico,
     plataforma: "Mobile App and Website",
     technologies: [
-      "Adobe Illustraitor",
-      "Next.Js",
-      "Typescript",
-      "Meterial-UI",
+      "Adobe Illustrator",
+      "Next.js",
+      "TypeScript",
+      "Material-UI",
       "React Native",
-      "Android Studio,",
+      "Android Studio",
       "Expo",
-      "Trello,",
-      "GitHub,",
+      "Trello",
+      "GitHub",
     ],
     etiqueta: ["Design", "Developer Front-end"],
     description:
-      "Diseñé y desarrollé una plataforma web con Next.js, TypeScript y Material-UI. Migré el proyecto a una aplicación móvil multiplataforma utilizando React Native y Expo, compatible con web, Android e iOS. Implementé la API de Google Maps Places y funciones de geolocalización para personalizar la experiencia del usuario. Diseñé interfaces consistentes y responsivas para las tres plataformas. Coordiné el equipo de desarrollo utilizando Scrum, Trello, y GitHub.",
+      "Diseñé y desarrollé una plataforma web con Next.js, TypeScript y Material-UI. \n\nMigré el proyecto a una aplicación móvil multiplataforma utilizando React Native y Expo, compatible con web, Android e iOS. \n\nImplementé la API de Google Maps Places y funciones de geolocalización para personalizar la experiencia del usuario. \n\nDiseñé interfaces consistentes y responsivas para las tres plataformas. Coordiné el equipo de desarrollo utilizando Scrum, Trello, y GitHub.",
     enlace: "https://www.adondevamos.club/search/suggestions",
   },
   {
     id: "6",
     nameProyect: "Design Rouss",
-    coverImages:[mokups,appRE] ,
+    coverImages: cover,
     plataforma: "Design App RoussEstetica",
-    technologies: ["Adobe Illustraitor", "Figma"],
+    technologies: ["Adobe Illustrato", "Figma"],
     etiqueta: ["Design UX-UI", "Developer "],
     description:
-      "Diseño UX/UI para una aplicación. Llevé a cabo un proceso completo de UX Research, aplicando diversas metodologías como brief, benchmark, user personas, POV, encuestas y entrevistas para comprender las necesidades del usuario. A partir de estos hallazgos, definí el MVP, la arquitectura de información y realicé ejercicios de card sorting, task flow y flowchart para estructurar la navegación. Posteriormente, comencé a materializar la propuesta, desarrollando bocetos, wireframes en media y alta fidelidad, hasta llegar a la creación de un prototipo testeable, asegurando una experiencia de usuario óptima antes de su implementación.",
-    enlace: "",
+      "Diseño UX/UI para una aplicación. \n\nLlevé a cabo un proceso completo de UX Research, aplicando diversas metodologías como brief, benchmark, user personas, POV, encuestas y entrevistas para comprender las necesidades del usuario. \n\nA partir de estos hallazgos, definí el MVP, la arquitectura de información y realicé ejercicios de card sorting, task flow y flowchart para estructurar la navegación. \n\nPosteriormente, comencé a materializar la propuesta, desarrollando bocetos, wireframes en media y alta fidelidad, hasta llegar a la creación de un prototipo testeable, asegurando una experiencia de usuario óptima antes de su implementación.",
+    enlace:
+      "https://www.behance.net/gallery/202518257/App-Design-UXUI-Research-and-Development",
   },
 ];

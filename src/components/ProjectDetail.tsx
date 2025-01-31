@@ -1,9 +1,10 @@
 import { Box, IconButton, Typography } from "@mui/material";
 import image from "../assets/bodyProject.png";
-import {IconArrowLeft, IconBrandAdobeIllustrator, IconBrandFigma, IconBrandWordpress, IconFileTypeCss } from "@tabler/icons-react";
+import {IconArrowLeft,} from "@tabler/icons-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { projectsData } from "../utils/projectsData";
 import { useEffect, useState } from "react";
+import { technologyIcons } from "../utils/technologies";
 
 
 export const ProjectDetail = () => {
@@ -11,25 +12,35 @@ export const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
   const project = projectsData.find((p) => p.id === id);
 
+  
    const [imageIndex, setImageIndex] = useState(0);
 
   useEffect(() => {
-    // Verificar si coverImage está definido y tiene longitud
     const coverImage = project?.coverImage;
     if (Array.isArray(coverImage) && coverImage.length > 0) {
       const interval = setInterval(() => {
         setImageIndex((prevIndex) => (prevIndex + 1) % coverImage.length);
-      }, 3000); // Cambia la imagen cada 3 segundos
+      }, 3000);
 
-      return () => clearInterval(interval); // Limpiar el intervalo cuando el componente se desmonte
+      return () => clearInterval(interval);
     }
   }, [project?.coverImage]);
 
+const currentImage = Array.isArray(project?.coverImage)
+  ? project?.coverImage[imageIndex]
+    : project?.coverImage;
   
+  console.log("Current Image:", currentImage);
+
+  if (!project) {
+    return <div>Loading...</div>; 
+  }
   return (
     <Box
       id="details"
       sx={{
+        height: "100vh",
+
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -136,18 +147,28 @@ export const ProjectDetail = () => {
                   width: "100%",
                   transition: "transform 0.5s ease-in-out",
                   transform: `translateX(-${imageIndex * 100}%)`,
-                  backgroundImage: `url(${project.coverImage[imageIndex]})`,
-                 
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
                 }}
-              />
+              >
+                {project.coverImage.map((img, index) => (
+                  <img
+                    key={index}
+                    src={img || "url-to-placeholder-image"}
+                    alt={project?.nameProyect}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "18px 0px 0px 18px",
+                    }}
+                  />
+                ))}
+              </Box>
             ) : (
               <img
                 src={
                   Array.isArray(project?.coverImage)
-                    ? project.coverImage[0]
-                    : project?.coverImage
+                    ? project.coverImage[0] || "url-to-placeholder-image"
+                    : project?.coverImage || "url-to-placeholder-image"
                 }
                 alt={project?.nameProyect}
                 style={{
@@ -206,7 +227,7 @@ export const ProjectDetail = () => {
               </Box>
             </Box>
 
-            {project?.enlace && (
+            {project?.enlace ? (
               <a
                 href={project.enlace}
                 target="_blank"
@@ -222,6 +243,18 @@ export const ProjectDetail = () => {
               >
                 Enlace
               </a>
+            ) : (
+              <span
+                style={{
+                  fontSize: 12,
+                  color: "#A962FF",
+                  display: "block",
+                  marginTop: "10px",
+                  fontWeight: 600,
+                }}
+              >
+                En Progreso
+              </span>
             )}
           </Box>
         </Box>
@@ -250,16 +283,27 @@ export const ProjectDetail = () => {
             backgroundColor: "#261F264D",
           }}
         >
-          <IconBrandFigma size={20} color="white" stroke-width="1" />
+          {project.technologies.map((tech, index) => {
+            // Find the corresponding tech icon
+            const techObject = technologyIcons.find(
+              (item) => item.technology === tech
+            );
 
-          <IconBrandAdobeIllustrator
-            size={20}
-            color="#FF7C00"
-            stroke-width="1"
-          />
-
-          <IconFileTypeCss size={20} color="#FFFFFF" stroke-width="1" />
-          <IconBrandWordpress size={20} color="#21759B" stroke-width="1" />
+            return techObject ? (
+              <Box
+                key={index}
+                sx={{ display: "flex", alignItems: "center", marginRight: 1 }}
+              >
+                {typeof techObject.icon === "string" ? (
+                  <Typography variant="body2" sx={{ color: "white" }}>
+                    {techObject.icon}
+                  </Typography>
+                ) : (
+                  techObject.icon
+                )}
+              </Box>
+            ) : null;
+          })}
         </Box>
       </Box>
     </Box>

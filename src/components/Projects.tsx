@@ -5,6 +5,7 @@ import app from "../assets/mokup-app.png"
 import nuvah from "../assets/nuvah.jpg"
 import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
+import mak from "../assets/MacBook.png";
 
 export const Projects = () => {
   const navigate = useNavigate();
@@ -172,7 +173,7 @@ export const Projects = () => {
                 height: "145px",
                 backgroundColor: "#19161C",
                 borderRadius: 2,
-                backgroundImage: `url('https://img.freepik.com/fotos-premium/fondo-colores-abstracto-descarga-gratuita_80983-1710.jpg')`,
+                backgroundImage: `url(${mak})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
