@@ -10,9 +10,7 @@ const backendUrl = "https://marsalamariva-dev-back.onrender.com";
 interface ProjectReviewType {
   _id: string;
   companyName: string;
-  companyLogo?: string;
   description: string;
-  personalPhoto?: string;
   firstName: string;
   lastName: string;
   position: string;
@@ -90,7 +88,7 @@ export const Testimonials = () => {
           paddingLeft: { xs: 0, sm: 7 },
         }}
       >
-        {projectReviews.map((review, index) => (
+        {projectReviews?.map((review, index) => (
           <Box
             key={index}
             sx={{
@@ -100,7 +98,7 @@ export const Testimonials = () => {
               alignItems: "center",
             }}
           >
-            {/* Fila con el logo de la empresa y nombre */}
+         
             <Box
               sx={{
                 display: "flex",
@@ -109,16 +107,7 @@ export const Testimonials = () => {
                 paddingBottom: 1,
               }}
             >
-            {/*  <img
-                src={`${backendUrl}/${review.companyLogo.replace(/\\/g, "/")}`}
-                alt={review.companyName}
-                style={{
-                  width: 30,
-                  height: 30,
-                  marginRight: 8,
-                  borderRadius: 50,
-                }}
-              />*/} 
+
               <Typography
                 sx={{ fontSize: 13, fontWeight: "light", color: "white" }}
               >
@@ -155,14 +144,6 @@ export const Testimonials = () => {
                 marginTop: 2,
               }}
             >
-             {/*  <Avatar
-                src={`${backendUrl}/${review.personalPhoto.replace(
-                  /\\/g,
-                  "/"
-                )}`}
-              
-                sx={{ width: 35, height: 35, marginRight: 1 }}
-              />*/}
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography
                   sx={{ fontSize: 10, fontWeight: 600, color: "white" }}
