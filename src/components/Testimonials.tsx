@@ -120,7 +120,7 @@ export const Testimonials = () => {
               sx={{
                 textAlign: "center",
                 marginTop: 2,
-                width: { xs: "72%", sm: "48%", md: '60px' },
+                width: { xs: "72%", sm: "48%", md: '60%' },
               }}
             >
               <Typography
