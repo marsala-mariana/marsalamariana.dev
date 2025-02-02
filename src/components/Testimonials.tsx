@@ -5,7 +5,7 @@ import { IconGhost3Filled } from '@tabler/icons-react';
 import { ReviewFormModal } from './ReviewFormModal';
 import axios from 'axios';
 
-
+const backendUrl = "https://marsalamariva-dev-back.onrender.com";
 
 interface ProjectReviewType {
   _id: string;
@@ -27,7 +27,7 @@ export const Testimonials = () => {
  useEffect(() => {
    const fetchReviews = async () => {
      try {
-       const response = await axios.get("http://localhost:5000/api/reviews"); 
+       const response = await axios.get(`${backendUrl}/api/reviews`); 
        setProjectReviews(response.data);
      } catch (error) {
       return error
@@ -110,10 +110,7 @@ export const Testimonials = () => {
               }}
             >
               <img
-                src={`http://localhost:5000/${review.companyLogo.replace(
-                  /\\/g,
-                  "/"
-                )}`}
+                src={`${backendUrl}/${review.companyLogo.replace(/\\/g, "/")}`}
                 alt={review.companyName}
                 style={{
                   width: 30,
@@ -159,7 +156,7 @@ export const Testimonials = () => {
               }}
             >
               <Avatar
-                src={`http://localhost:5000/${review.personalPhoto.replace(
+                src={`${backendUrl}/${review.personalPhoto.replace(
                   /\\/g,
                   "/"
                 )}`}

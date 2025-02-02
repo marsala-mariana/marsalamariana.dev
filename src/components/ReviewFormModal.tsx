@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { IconCloudUpload } from "@tabler/icons-react";
 import axios from "axios";
-
+const backendUrl = "https://marsalamariva-dev-back.onrender.com";
 interface ReviewFormModalProps {
   open: boolean;
   onClose: () => void;
@@ -87,7 +87,7 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
 
      try {
        const response = await axios.post(
-         "http://localhost:5000/api/reviews",
+        `${backendUrl}/api/reviews`,
          form,
          {
            headers: {
