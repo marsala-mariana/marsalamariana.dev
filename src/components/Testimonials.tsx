@@ -1,4 +1,4 @@
-import { Alert, Avatar, Box, Button, Typography } from '@mui/material'
+import { Alert,Box, Button, Typography } from '@mui/material'
 import image from "../assets/bodyProject.png";
 import { useEffect, useState } from 'react';
 import { IconGhost3Filled } from '@tabler/icons-react';
@@ -10,9 +10,9 @@ const backendUrl = "https://marsalamariva-dev-back.onrender.com";
 interface ProjectReviewType {
   _id: string;
   companyName: string;
-  companyLogo: string;
+  companyLogo?: string;
   description: string;
-  personalPhoto: string;
+  personalPhoto?: string;
   firstName: string;
   lastName: string;
   position: string;
@@ -109,7 +109,7 @@ export const Testimonials = () => {
                 paddingBottom: 1,
               }}
             >
-              <img
+            {/*  <img
                 src={`${backendUrl}/${review.companyLogo.replace(/\\/g, "/")}`}
                 alt={review.companyName}
                 style={{
@@ -118,7 +118,7 @@ export const Testimonials = () => {
                   marginRight: 8,
                   borderRadius: 50,
                 }}
-              />
+              />*/} 
               <Typography
                 sx={{ fontSize: 13, fontWeight: "light", color: "white" }}
               >
@@ -155,14 +155,14 @@ export const Testimonials = () => {
                 marginTop: 2,
               }}
             >
-              <Avatar
+             {/*  <Avatar
                 src={`${backendUrl}/${review.personalPhoto.replace(
                   /\\/g,
                   "/"
                 )}`}
               
                 sx={{ width: 35, height: 35, marginRight: 1 }}
-              />
+              />*/}
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography
                   sx={{ fontSize: 10, fontWeight: 600, color: "white" }}

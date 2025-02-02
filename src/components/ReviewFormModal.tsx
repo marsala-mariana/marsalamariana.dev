@@ -6,7 +6,7 @@ import {
   TextField,
   Modal,
 } from "@mui/material";
-import { IconCloudUpload } from "@tabler/icons-react";
+
 import axios from "axios";
 const backendUrl = "https://marsalamariva-dev-back.onrender.com";
 interface ReviewFormModalProps {
@@ -20,57 +20,18 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
 }) => {
   const [formData, setFormData] = useState({
     companyName: "",
-    companyLogo: "",
     description: "",
-    personalPhoto: "",
     firstName: "",
     lastName: "",
     position: "",
   });
 
-   const [uploadedLogo, setUploadedLogo] = useState<File | null>(null);
-   const [uploadedPhoto, setUploadedPhoto] = useState<File | null>(null);
-
-   const acceptedFileTypes = "image/*";
-   const maxSize = 5; 
 
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
      const { name, value } = e.target;
      setFormData((prev) => ({ ...prev, [name]: value }));
    };
 
-   const handleFileChange = (
-     e: React.ChangeEvent<HTMLInputElement>,
-     type: "logo" | "photo"
-   ) => {
-     const file = e.target.files?.[0];
-     if (file) {
-       if (type === "logo") {
-         setUploadedLogo(file);
-       } else {
-         setUploadedPhoto(file);
-       }
-     }
-   };
-
-   const handleDrop = (
-     e: React.DragEvent<HTMLDivElement>,
-     type: "logo" | "photo"
-   ) => {
-     e.preventDefault();
-     const file = e.dataTransfer.files[0];
-     if (file) {
-       if (type === "logo") {
-         setUploadedLogo(file);
-       } else {
-         setUploadedPhoto(file);
-       }
-     }
-   };
-
-   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-     e.preventDefault();
-   };
 
    const handleSubmit = async (e: React.FormEvent) => {
      e.preventDefault();
@@ -82,9 +43,7 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
      form.append("lastName", formData.lastName);
      form.append("position", formData.position);
 
-     if (uploadedLogo) form.append("companyLogo", uploadedLogo);
-     if (uploadedPhoto) form.append("personalPhoto", uploadedPhoto);
-
+ 
      try {
        const response = await axios.post(
         `${backendUrl}/api/reviews`,
@@ -152,7 +111,7 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
           onSubmit={handleSubmit}
           sx={{ display: "flex", flexDirection: "column", gap: 2 }}
         >
-          <TextField
+          {/*   <TextField
             name="companyName"
             placeholder="Nombre de la empresa"
             value={formData.companyName}
@@ -172,8 +131,8 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
               },
             }}
           />
-
-          {/* Campo para el Logo */}
+*/}
+          {/* Campo para el Logo 
           <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
             <Box
               onDrop={(e) => handleDrop(e, "logo")}
@@ -239,7 +198,7 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
               </Typography>
             )}
           </Box>
-
+*/}
           <TextField
             name="description"
             placeholder="Descripcion"
@@ -264,72 +223,7 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
               },
             }}
           />
-          {/* Campo para la Foto Personal */}
-          <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
-            <Box
-              onDrop={(e) => handleDrop(e, "photo")}
-              onDragOver={handleDragOver}
-              sx={{
-                border: "1px dashed #ccc",
-                borderRadius: "8px",
-                p: 2,
-                textAlign: "center",
-                mb: 2,
-                cursor: "pointer",
-                display: "flex",
-                justifyContent: "space-between",
-                width: "100%",
-              }}
-            >
-              <input
-                type="file"
-                style={{ display: "none" }}
-                id="photoInput"
-                accept={acceptedFileTypes}
-                onChange={(e) => handleFileChange(e, "photo")}
-              />
-              <label htmlFor="photoInput" style={{ cursor: "pointer" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    width: "100%",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: 2,
-                  }}
-                >
-                  <IconCloudUpload size={65} strokeWidth={1} color="#ccc" />
-                  <Box
-                    paddingLeft={5}
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <Typography sx={{ fontSize: 11 }} color="white">
-                      Seleccione una foto o arrástrela y suéltela aquí.
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        fontSize: 11,
-                        color: "rgba(255, 255, 255, 0.3)",
-                        paddingTop: 1,
-                      }}
-                    >
-                      {acceptedFileTypes}, tamaño máximo de {maxSize} MB
-                    </Typography>
-                  </Box>
-                </Box>
-              </label>
-            </Box>
-            {uploadedPhoto && (
-              <Typography sx={{ fontSize: 11, fontWeight: 300 }} color="white">
-                {uploadedPhoto.name}
-              </Typography>
-            )}
-          </Box>
+         
           <TextField
             name="firstName"
             placeholder="Nombre"
