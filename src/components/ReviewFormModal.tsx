@@ -7,6 +7,7 @@ import {
   Modal,
 } from "@mui/material";
 import { IconCloudUpload } from "@tabler/icons-react";
+import axios from "axios";
 
 interface ReviewFormModalProps {
   open: boolean;
@@ -71,12 +72,38 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
      e.preventDefault();
    };
 
-   const handleSubmit = (e: React.FormEvent) => {
+   const handleSubmit = async (e: React.FormEvent) => {
      e.preventDefault();
-     console.log("Formulario enviado:", formData, uploadedLogo, uploadedPhoto);
-     onClose();
+
+     const form = new FormData();
+     form.append("companyName", formData.companyName);
+     form.append("description", formData.description);
+     form.append("firstName", formData.firstName);
+     form.append("lastName", formData.lastName);
+     form.append("position", formData.position);
+
+     if (uploadedLogo) form.append("companyLogo", uploadedLogo);
+     if (uploadedPhoto) form.append("personalPhoto", uploadedPhoto);
+
+     try {
+       const response = await axios.post(
+         "http://localhost:5000/api/reviews",
+         form,
+         {
+           headers: {
+             "Content-Type": "multipart/form-data",
+           },
+         }
+       );
+
+       onClose();
+        return response.data;
+     } catch (error: any) {
+     return error
+     }
   };
   
+
   return (
     <Modal open={open} onClose={onClose}>
       <Box
