@@ -98,7 +98,6 @@ export const Testimonials = () => {
               alignItems: "center",
             }}
           >
-         
             <Box
               sx={{
                 display: "flex",
@@ -107,9 +106,8 @@ export const Testimonials = () => {
                 paddingBottom: 1,
               }}
             >
-
               <Typography
-                sx={{ fontSize: 13, fontWeight: "light", color: "white" }}
+                sx={{ fontSize: 18, fontWeight: 600, color: "white" }}
               >
                 {review.companyName}
               </Typography>
@@ -131,7 +129,12 @@ export const Testimonials = () => {
                   lineHeight: 2,
                 }}
               >
-                {review.description}
+                {review.description.split(".").map((line, index) => (
+                  <span key={index}>
+                    {line.trim()}
+                    {index < review.description.split(".").length - 1 && <br />}
+                  </span>
+                ))}
               </Typography>
             </Box>
 
@@ -144,7 +147,13 @@ export const Testimonials = () => {
                 marginTop: 2,
               }}
             >
-              <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
                 <Typography
                   sx={{ fontSize: 10, fontWeight: 600, color: "white" }}
                 >

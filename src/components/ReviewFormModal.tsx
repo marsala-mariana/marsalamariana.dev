@@ -111,7 +111,7 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
           onSubmit={handleSubmit}
           sx={{ display: "flex", flexDirection: "column", gap: 2 }}
         >
-          {/*   <TextField
+           <TextField
             name="companyName"
             placeholder="Nombre de la empresa"
             value={formData.companyName}
@@ -131,74 +131,8 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
               },
             }}
           />
-*/}
-          {/* Campo para el Logo 
-          <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
-            <Box
-              onDrop={(e) => handleDrop(e, "logo")}
-              onDragOver={handleDragOver}
-              sx={{
-                border: "1px dashed #ccc",
-                borderRadius: "8px",
-                p: 2,
-                textAlign: "center",
-                mb: 2,
-                cursor: "pointer",
-                display: "flex",
-                justifyContent: "space-between",
-                width: "100%",
-              }}
-            >
-              <input
-                type="file"
-                style={{ display: "none" }}
-                id="logoInput"
-                accept={acceptedFileTypes}
-                onChange={(e) => handleFileChange(e, "logo")}
-              />
-              <label htmlFor="logoInput" style={{ cursor: "pointer" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    width: "100%",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: 2,
-                  }}
-                >
-                  <IconCloudUpload size={65} strokeWidth={1} color="#ccc" />
-                  <Box
-                    paddingLeft={5}
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <Typography sx={{ fontSize: 11 }} color="white">
-                      Seleccione el logo o arrástrelo y suéltelo aquí.
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        fontSize: 11,
-                        color: "rgba(255, 255, 255, 0.3)",
-                        paddingTop: 1,
-                      }}
-                    >
-                      {acceptedFileTypes}, tamaño máximo de {maxSize} MB
-                    </Typography>
-                  </Box>
-                </Box>
-              </label>
-            </Box>
-            {uploadedLogo && (
-              <Typography sx={{ fontSize: 11, fontWeight: 300 }} color="white">
-                {uploadedLogo.name}
-              </Typography>
-            )}
-          </Box>
-*/}
+
+        
           <TextField
             name="description"
             placeholder="Descripcion"
