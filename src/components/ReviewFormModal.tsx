@@ -111,7 +111,7 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
           onSubmit={handleSubmit}
           sx={{ display: "flex", flexDirection: "column", gap: 2 }}
         >
-           <TextField
+          <TextField
             name="companyName"
             placeholder="Nombre de la empresa"
             value={formData.companyName}
@@ -121,7 +121,7 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
             required
             sx={{
               mb: 2,
-              backgroundColor: "060010",
+              backgroundColor: "rgb(91 13 92 / 25%)",
               input: { color: "white", fontSize: 11 },
               "& .MuiOutlinedInput-root": {
                 borderRadius: "10px",
@@ -132,7 +132,6 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
             }}
           />
 
-        
           <TextField
             name="description"
             placeholder="Descripcion"
@@ -157,7 +156,7 @@ export const ReviewFormModal: React.FC<ReviewFormModalProps> = ({
               },
             }}
           />
-         
+
           <TextField
             name="firstName"
             placeholder="Nombre"
