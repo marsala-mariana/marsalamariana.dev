@@ -60,10 +60,12 @@ export const Home: React.FC = () => {
         Full Stack Developer, UX/UI Designer y Creativa Visual
       </Typography>
 
-      <Box sx={{
-        position: "absolute",
-        bottom: {xs:'150px',sm:28,md:28}
-      }}>
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: { xs: "150px", sm: 28, md: 28 },
+        }}
+      >
         <Button
           variant="contained"
           sx={{
@@ -73,7 +75,7 @@ export const Home: React.FC = () => {
             fontWeight: "bold",
           }}
           component="a"
-          href="/Currículum Marsala Mariana.pdf"
+          href="/Currículum Marsala-Marsaiana.pdf"
           download="Mariana_Marsala_CV.pdf"
         >
           <Typography
