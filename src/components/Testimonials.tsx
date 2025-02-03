@@ -27,8 +27,13 @@ export const Testimonials = () => {
      try {
        const response = await axios.get(`${backendUrl}/api/reviews`); 
        setProjectReviews(response.data);
+        localStorage.setItem("projectReviews", JSON.stringify(response.data)); 
      } catch (error) {
-      return error
+       console.error("Error fetching reviews:", error);
+       const cachedReviews = localStorage.getItem("projectReviews");
+       if (cachedReviews) {
+         setProjectReviews(JSON.parse(cachedReviews)); 
+       }
      }
    };
 
