@@ -128,7 +128,7 @@ const [alertMessage, setAlertMessage] = useState<string | null>(null);
           >
             <TextField
               name="companyName"
-              placeholder="Nombre de la empresa"
+              placeholder="Nombre de la empresa o proyecto"
               value={formData.companyName}
               onChange={handleChange}
               variant="outlined"
@@ -149,7 +149,7 @@ const [alertMessage, setAlertMessage] = useState<string | null>(null);
 
             <TextField
               name="description"
-              placeholder="Descripcion"
+              placeholder="Describe tu experiencia"
               variant="outlined"
               value={formData.description}
               onChange={handleChange}
@@ -174,7 +174,7 @@ const [alertMessage, setAlertMessage] = useState<string | null>(null);
 
             <TextField
               name="firstName"
-              placeholder="Nombre"
+              placeholder="Tu Nombre"
               variant="outlined"
               value={formData.firstName}
               onChange={handleChange}
@@ -194,7 +194,7 @@ const [alertMessage, setAlertMessage] = useState<string | null>(null);
             />
             <TextField
               name="lastName"
-              placeholder="Apellido"
+              placeholder="Tu Apellido"
               variant="outlined"
               value={formData.lastName}
               onChange={handleChange}
@@ -214,7 +214,7 @@ const [alertMessage, setAlertMessage] = useState<string | null>(null);
             />
             <TextField
               name="position"
-              placeholder="Puesto"
+              placeholder="Tu cargo o profesión"
               variant="outlined"
               value={formData.position}
               onChange={handleChange}
