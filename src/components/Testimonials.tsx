@@ -1,4 +1,4 @@
-import { Alert,Box, Button, Typography } from '@mui/material'
+import { Alert,Box, Button, CircularProgress, Typography } from '@mui/material'
 import image from "../assets/bodyProject.png";
 import { useEffect, useState } from 'react';
 import { IconGhost3Filled } from '@tabler/icons-react';
@@ -18,43 +18,45 @@ interface ProjectReviewType {
 
 
 export const Testimonials = () => {
-  const [openAlert, setOpenAlert] = useState(false); 
-  const [openModal, setOpenModal] = useState(false); 
+  const [openAlert, setOpenAlert] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const [projectReviews, setProjectReviews] = useState<ProjectReviewType[]>([]);
+  const [loading, setLoading] = useState(true);
 
- useEffect(() => {
-   const fetchReviews = async () => {
-     try {
-       const response = await axios.get(`${backendUrl}/api/reviews`); 
-       setProjectReviews(response.data);
-        localStorage.setItem("projectReviews", JSON.stringify(response.data)); 
-     } catch (error) {
-       console.error("Error fetching reviews:", error);
-       const cachedReviews = localStorage.getItem("projectReviews");
-       if (cachedReviews) {
-         setProjectReviews(JSON.parse(cachedReviews)); 
-       }
-     }
-   };
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get(`${backendUrl}/api/reviews`);
+        setProjectReviews(response.data);
+        localStorage.setItem("projectReviews", JSON.stringify(response.data));
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+        const cachedReviews = localStorage.getItem("projectReviews");
+        if (cachedReviews) {
+          setProjectReviews(JSON.parse(cachedReviews));
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchReviews();
 
-   fetchReviews();
+    const timer = setTimeout(() => {
+      setOpenAlert(true);
+    }, 3000);
 
-   const timer = setTimeout(() => {
-     setOpenAlert(true);
-   }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
-   return () => clearTimeout(timer);
- }, []);
-
- const handleYesClick = () => {
-   setOpenModal(true); 
-   setOpenAlert(false); 
- };
-
- const handleNoClick = () => {
-   setOpenAlert(false);
+  const handleYesClick = () => {
+    setOpenModal(true);
+    setOpenAlert(false);
   };
-  
+
+  const handleNoClick = () => {
+    setOpenAlert(false);
+  };
+
   return (
     <Box
       id="testimonials"
@@ -85,6 +87,7 @@ export const Testimonials = () => {
           - Testimonials
         </Typography>
       </Box>
+
       <Box
         sx={{
           display: "flex",
@@ -93,90 +96,104 @@ export const Testimonials = () => {
           paddingLeft: { xs: 0, sm: 7 },
         }}
       >
-        {projectReviews?.map((review, index) => (
+        {loading ? (
           <Box
-            key={index}
             sx={{
-              marginBottom: 15,
               display: "flex",
-              flexDirection: "column",
+              justifyContent: "center",
               alignItems: "center",
+              height: "300px",
             }}
           >
-         
+            <CircularProgress sx={{ color: "#AE0CA7" }} />
+          </Box>
+        ) : (
+          projectReviews?.map((review, index) => (
             <Box
+              key={index}
               sx={{
+                marginBottom: 15,
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "center",
-                paddingBottom: 1,
               }}
             >
-
-              <Typography
-                sx={{ fontSize: 18, fontWeight:600, color: "white" }}
-              >
-                {review.companyName}
-              </Typography>
-            </Box>
-
-            {/* Descripción de la reseña */}
-            <Box
-              sx={{
-                textAlign: "center",
-                marginTop: 2,
-                width: { xs: "72%", sm: "80%", md: '60%' },
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: 12,
-                  color: "white",
-                  fontWeight: 300,
-                  lineHeight: 2,
-                  textAlign:'justify'
-                }}
-              >
-                {review.description}
-              </Typography>
-            </Box>
-
-            {/* Avatar y nombre de la persona */}
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginTop: 2,
-              }}
-            >
-              <Box sx={{ display: "flex", flexDirection: "column",alignItems:'center' }}>
-                <Typography
-                  sx={{ fontSize: 10, fontWeight: 600, color: "white" }}
-                >
-                  {review.firstName} {review.lastName}
-                </Typography>
-                <Typography
-                  sx={{ fontSize: 10, fontWeight: 300, color: "white" }}
-                >
-                  {review.position}
-                </Typography>
-              </Box>
-            </Box>
-            {index < projectReviews.length - 1 && (
               <Box
                 sx={{
-                  border: "1px solid #c3c3c30f",
-                  marginTop: 10,
-                  width: "60%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  paddingBottom: 1,
                 }}
-              />
-            )}
-          </Box>
-        ))}
+              >
+                <Typography
+                  sx={{ fontSize: 18, fontWeight: 600, color: "white" }}
+                >
+                  {review.companyName}
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  textAlign: "center",
+                  marginTop: 2,
+                  width: { xs: "72%", sm: "80%", md: "60%" },
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: 12,
+                    color: "white",
+                    fontWeight: 300,
+                    lineHeight: 2,
+                    textAlign: "justify",
+                  }}
+                >
+                  {review.description}
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginTop: 2,
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: 10, fontWeight: 600, color: "white" }}
+                  >
+                    {review.firstName} {review.lastName}
+                  </Typography>
+                  <Typography
+                    sx={{ fontSize: 10, fontWeight: 300, color: "white" }}
+                  >
+                    {review.position}
+                  </Typography>
+                </Box>
+              </Box>
+              {index < projectReviews.length - 1 && (
+                <Box
+                  sx={{
+                    border: "1px solid #c3c3c30f",
+                    marginTop: 10,
+                    width: "60%",
+                  }}
+                />
+              )}
+            </Box>
+          ))
+        )}
       </Box>
 
-      {/* Alerta */}
       {openAlert && (
         <Box
           sx={{
@@ -230,8 +247,7 @@ export const Testimonials = () => {
           </Alert>
         </Box>
       )}
-      {/* Modal con formulario */}
       <ReviewFormModal open={openModal} onClose={() => setOpenModal(false)} />
     </Box>
   );
-}
+};
