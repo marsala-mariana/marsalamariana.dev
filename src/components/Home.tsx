@@ -75,7 +75,7 @@ export const Home: React.FC = () => {
             fontWeight: "bold",
           }}
           component="a"
-          href="/Currículum Marsala-Marsaiana.pdf"
+          href="/Currículum Marsala Mariana.pdf"
           download="Mariana_Marsala_CV.pdf"
         >
           <Typography
