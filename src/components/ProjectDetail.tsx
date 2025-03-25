@@ -40,7 +40,6 @@ const currentImage = Array.isArray(project?.coverImage)
     <Box
       id="details"
       sx={{
-        // height: { xs: "122vh", sm: "100vh", md: "100vh" },
         minHeight: "100vh",
         height: "auto",
         backgroundImage: `url(${image})`,
@@ -144,7 +143,6 @@ const currentImage = Array.isArray(project?.coverImage)
           flexDirection={{ xs: "column", sm: "row", md: "row" }}
           alignItems="center"
           justifyContent="center"
-          //width="58%"
           width={{ xs: "75%", sm: "85%", md: "58%" }}
         >
           <Box
@@ -179,7 +177,7 @@ const currentImage = Array.isArray(project?.coverImage)
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      //   borderRadius: "18px 0px 0px 18px",
+                  
                     }}
                   />
                 ))}
@@ -313,7 +311,7 @@ const currentImage = Array.isArray(project?.coverImage)
             transition={{ ease: "linear", duration: 10, repeat: Infinity }}
           >
             {project.technologies.map((tech, index) => {
-              // Find the corresponding tech icon
+         
               const techObject = technologyIcons.find(
                 (item) => item.technology === tech
               );

@@ -8,9 +8,8 @@ import {
   Snackbar,
   Alert,
 } from "@mui/material";
-
 import axios from "axios";
-const backendUrl = "https://marsalamariva-dev-back.onrender.com";
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 interface ReviewFormModalProps {
   open: boolean;
   onClose: () => void;
@@ -62,7 +61,6 @@ const [alertMessage, setAlertMessage] = useState<string | null>(null);
  setAlertMessage("Reseña publicada con éxito 🎉");
  setAlertType("success");
 
- // Cerrar el modal después de un pequeño retraso
  setTimeout(() => {
    onClose();
  }, 1500);

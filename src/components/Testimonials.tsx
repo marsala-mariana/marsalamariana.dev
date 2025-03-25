@@ -5,7 +5,7 @@ import { IconGhost3Filled } from '@tabler/icons-react';
 import { ReviewFormModal } from './ReviewFormModal';
 import axios from 'axios';
 
-const backendUrl = "https://marsalamariva-dev-back.onrender.com";
+
 
 interface ProjectReviewType {
   _id: string;
@@ -15,6 +15,7 @@ interface ProjectReviewType {
   lastName: string;
   position: string;
 }
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 
 export const Testimonials = () => {
