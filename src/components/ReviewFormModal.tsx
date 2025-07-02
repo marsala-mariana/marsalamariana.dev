@@ -253,7 +253,7 @@ const [alertMessage, setAlertMessage] = useState<string | null>(null);
           </Box>
         </Box>
       </Modal>
-      {/* Snackbar para mostrar el mensaje de éxito o error */}
+
       <Snackbar
         open={!!alertMessage}
         autoHideDuration={3000}

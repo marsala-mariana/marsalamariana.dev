@@ -89,7 +89,7 @@ const currentImage = Array.isArray(project?.coverImage)
             {project?.nameProyect} - {project?.plataforma}
           </Typography>
 
-          {/* Contenedores de tecnologías */}
+    
           <Box
             display="flex"
             gap={3}
@@ -129,7 +129,6 @@ const currentImage = Array.isArray(project?.coverImage)
         </Box>
       </Box>
 
-      {/* Contenedor principal */}
       <Box
         sx={{
           width: "100%",

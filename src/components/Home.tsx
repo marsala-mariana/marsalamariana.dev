@@ -2,9 +2,6 @@ import React from "react";
 import { Box, Typography, Button} from "@mui/material";
 import fondo from "../assets/body.png";
 
-
-
-
 export const Home: React.FC = () => {
   return (
     <Box
@@ -24,7 +21,7 @@ export const Home: React.FC = () => {
         paddingTop: { xs: "56%", sm: "0%" },
       }}
     >
-      {/* Contenido principal */}
+   
       <Typography
         sx={{
           fontSize: 12,

@@ -48,7 +48,7 @@ export const Projects = () => {
         </Typography>
       </Box>
 
-      {/* CAJA PRINCIPAL*/}
+
       <Box
         sx={{
           display: { sm: "flex" },
@@ -64,7 +64,7 @@ export const Projects = () => {
             flexDirection: { xs: "row", sm: "column", md: "row" },
           }}
         >
-          {/* FILA 1*/}
+       
           <Box
             sx={{
               display: "flex",
@@ -73,7 +73,7 @@ export const Projects = () => {
               justifyContent: "space-between",
             }}
           >
-            {/* CAJA UNO*/}
+        
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ rotate: 30 }}
@@ -117,7 +117,7 @@ export const Projects = () => {
               </Box>
             </motion.div>
 
-            {/* CAJA dos*/}
+          
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ rotate: 30 }}
@@ -138,7 +138,7 @@ export const Projects = () => {
               ></Box>
             </motion.div>
           </Box>
-          {/*  FILA 2*/}
+       
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ rotate: 30 }}
@@ -162,7 +162,7 @@ export const Projects = () => {
           </motion.div>
         </Box>
 
-        {/* FILA 3*/}
+   
         <Box
           sx={{
             display: "flex",
@@ -179,7 +179,7 @@ export const Projects = () => {
               justifyContent: "space-between",
             }}
           >
-            {/* CAJA tres*/}
+       
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ rotate: 30 }}
@@ -199,7 +199,7 @@ export const Projects = () => {
                 }}
               ></Box>
             </motion.div>
-            {/* CAJA cuatro*/}
+     
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ rotate: 30 }}
@@ -243,7 +243,7 @@ export const Projects = () => {
               </Box>
             </motion.div>
           </Box>
-          {/*  FILA 4*/}
+     
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ rotate: 30 }}

@@ -23,7 +23,7 @@ export const Contact = () => {
           alignItems: { xs: "center", sm: "flex-start" },
         }}
       >
-        {/* columna 1*/}
+  
         <Box
           sx={{
             display: "flex",
@@ -115,7 +115,6 @@ export const Contact = () => {
           </Box>
         </Box>
 
-        {/* Columna 2: Formulario */}
         <Box
           sx={{
             display: "flex",
