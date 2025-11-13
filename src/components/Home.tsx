@@ -21,7 +21,6 @@ export const Home: React.FC = () => {
         paddingTop: { xs: "56%", sm: "0%" },
       }}
     >
-   
       <Typography
         sx={{
           fontSize: 12,
@@ -72,7 +71,7 @@ export const Home: React.FC = () => {
             fontWeight: "bold",
           }}
           component="a"
-          href="/Currículum Marsala Mariana.pdf"
+          href="/MARSALA STEPHANIE MARIANA.pdf"
           download="Mariana_Marsala_CV.pdf"
         >
           <Typography
